@@ -1,0 +1,305 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#main {
+    min-height: 100vh;
+    /*height: 1200px;*/
+}
+
+/*HEADER*/
+
+#header {
+    background: #9F8772;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    font-family: sans-serif;
+}
+
+#container-head {
+    max-width: 960px;
+    max-height: 60px;
+    margin-left: 40px;
+}
+
+
+    #container-head #logo-name {
+        margin-right: 100px;
+        margin-left: 50px
+    }
+
+
+nav {
+    display: flex;
+    justify-items: center;
+    float: left;
+}
+
+    nav h1 {
+        font-family: 'Niconne', cursive;
+        color: #fff;
+        line-height: 60px;
+        font-size: 40px;
+    }
+
+#main-menu {
+    display: flex;
+    list-style: none; /* bỏ dấu chấm list */
+    margin: 0;
+    padding: 0;
+}
+
+    #main-menu li {
+        position: relative;
+    }
+
+    #main-menu > li > a {
+        color: rgb(255, 255, 255);
+        display: block;
+        /* display: flex; */
+        padding: 0px 30px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: 'Nunito', sans-serif;
+        font-size: 15px;
+    }
+
+    #main-menu li a {
+        color: #ffffff;
+        display: block;
+        padding: 18px 20px;
+        text-decoration: none;
+    }
+
+    #main-menu ul.sub-menu {
+        position: absolute;
+        display: none;
+        background-color: #9F8772;
+        /* padding: 12px 0px; */
+        /* padding-top: ; */
+        list-style: none;
+        width: 200px;
+        border: 1px solid #9c9c9c;
+    }
+
+        #main-menu ul.sub-menu li {
+            padding-top: 5px;
+        }
+
+    #main-menu li:hover > ul.sub-menu {
+        display: block;
+    }
+
+    #main-menu ul.sub-menu a {
+        padding: 10px 15px;
+        border-bottom: 1px solid #9c9c9c;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    #main-menu ul.sub-menu li:hover > a {
+        border-bottom: 1px solid #000000;
+        z-index: 2;
+    }
+
+    #main-menu ul.sub-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    #main-menu ul.sub-menu ul.sub-menu {
+        left: 198px;
+        top: 15px;
+    }
+
+    /* thiết lập border khi hover  */
+    #main-menu > li > a {
+        position: relative;
+    }
+
+        #main-menu > li > a::before {
+            position: absolute;
+            content: "";
+            height: 4px;
+            width: 0px;
+            background: rgb(220, 220, 220);
+            bottom: 0px;
+            left: 0px;
+            transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+    #main-menu > li:hover > a::before {
+        width: 100%
+    }
+
+    #main-menu > li.has-child::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f107";
+        color: #ffffff;
+        position: absolute;
+        top: 6px;
+        right: 0;
+        padding: 18px 0px;
+        font-size: 12px;
+    }
+
+    #main-menu .sub-menu li:hover > a {
+        color: black;
+    }
+
+    #main-menu .sub-menu > li.has-child::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f105";
+        color: #ffffff;
+        position: absolute;
+        top: 10px;
+        right: 4px;
+        padding: 8px 0px;
+        font-size: 12px;
+    }
+
+    #main-menu .sub-menu > li:hover.has-child::after {
+        color: rgb(0, 0, 0);
+    }
+
+.icon-header {
+    float: right;
+    font-size: 20px;
+    margin: 20px;
+}
+
+    /*.icon-header i {
+        padding: 0 20px; 
+        margin: 0 20px;
+    }*/
+
+    .icon-header .fa-solid fa-user {
+        margin-left: 10px;
+    }
+
+/*Hết phần HEADER*/
+
+#content {
+    margin-top: 60px;
+}
+
+/*FOOTER*/
+.container {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding-top: 5px;
+}
+
+#footer {
+    background-color: #212121;
+    color: #fff;
+    padding-top: 70px;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+    .footer-col h4 {
+        font-size: 18px;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
+    }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #c11313;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+    .footer-col ul li a {
+        font-size: 16px;
+        text-transform: capitalize;
+        text-decoration: none;
+        /*        font-weight: 300px;
+*/ color: #fff;
+    }
+
+        .footer-col ul li a:hover {
+            color: rgba(194, 173, 173, 0.6)
+        }
+
+    .footer-col .sns-list {
+        font-size: 20px;
+    }
+
+#footer .sns-list a {
+    color: rgba(255, 255, 255, 0.878);
+    text-decoration: none; /*bỏ gạch chân*/
+}
+
+    #footer .sns-list a:hover {
+        color: rgba(194, 173, 173, 0.6)
+    }
+
+
+#footer .copyright {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+@media(max-width:767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+/* hiệu ứng hiện lên từ từ*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+/*Hết phần FOOTER*/
+
