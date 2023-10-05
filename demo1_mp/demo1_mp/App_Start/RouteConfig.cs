@@ -16,7 +16,12 @@ namespace demo1_mp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Products", action = "Index", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "Edit",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Categories", action = "Edit", id = UrlParameter.Optional }
             );
         }
     }

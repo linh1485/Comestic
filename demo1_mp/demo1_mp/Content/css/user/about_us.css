@@ -65,11 +65,12 @@
 }
 
 .img-story1 {
-    width: 40%;
+    width: 600px;
+    height: 500px;
 }
 
     .img-story1 img {
-        margin-top: 100px;
+        margin-top: 50px;
     }
 
 .story-1 h2 {

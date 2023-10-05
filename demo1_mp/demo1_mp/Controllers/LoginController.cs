@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using demo1_mp.Models;
 
+
 namespace demo1_mp.Controllers
 {
-    public class ProductController : Controller
+    public class LoginController : Controller
     {
-        private dbEntities db = new dbEntities();
-        // GET: Product
+        // GET: Login
         public ActionResult Index()
         {
             return View();

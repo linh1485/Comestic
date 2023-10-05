@@ -129,9 +129,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,18 +176,41 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\admin\menu.css" />
     <Content Include="Content\css\user\about_us.css" />
+    <Content Include="Content\css\user\index.css" />
     <Content Include="Content\css\user\menu.css" />
     <Content Include="Content\font\all.css" />
     <Content Include="Content\font\all.js" />
+    <Content Include="Content\img\2bidao.jpg" />
+    <Content Include="Content\img\2ttbccaphe.jpg" />
+    <Content Include="Content\img\bodysangmin.png" />
+    <Content Include="Content\img\combophuchoi.png" />
+    <Content Include="Content\img\daugoibuoi2.png" />
+    <Content Include="Content\img\duongammoi.jpg" />
+    <Content Include="Content\img\gelbidao.jpg" />
+    <Content Include="Content\img\gelruamat310ml.jpg" />
+    <Content Include="Content\img\kemchongnang.jpg" />
+    <Content Include="Content\img\matnabidao.jpg" />
+    <Content Include="Content\img\matnahoahong.jpg" />
+    <Content Include="Content\img\nuocnghehungyen.jpg" />
+    <Content Include="Content\img\nuoctaytranghoahong.jpg" />
+    <Content Include="Content\img\thachbidao.jpg" />
+    <Content Include="Content\img\thachnghehungyen.png" />
+    <Content Include="Content\img\tinhchatbidao.jpg" />
+    <Content Include="Content\img\tinhchathoahong.jpg" />
+    <Content Include="Content\img\ttbccaphe.jpg" />
+    <Content Include="Content\img\vechungtoi.jpg" />
+    <Content Include="Content\img\vochai.jpg" />
+    <Content Include="Content\img\xitkhoangnghe.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -227,13 +251,22 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

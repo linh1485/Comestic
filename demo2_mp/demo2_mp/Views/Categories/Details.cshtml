@@ -1,0 +1,30 @@
+﻿@model demo2_mp.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết danh mục </h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>ID</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCate)
+        </dd>
+
+        <dt>Tên danh mục</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameCate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDCate.Trim() }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>
