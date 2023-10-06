@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Chi tiết danh mục </h2>
+<h2>Chi tiết loại sản phẩm </h2>
 
 <div>
     <hr />
@@ -16,7 +16,7 @@
             @Html.DisplayFor(model => model.IDCate)
         </dd>
 
-        <dt>Tên danh mục</dt>
+        <dt>Loại sản phẩm</dt>
 
         <dd>
             @Html.DisplayFor(model => model.NameCate)
@@ -28,3 +28,6 @@
     @Html.ActionLink("Sửa", "Edit", new { id = Model.IDCate.Trim() }) |
     @Html.ActionLink("Quay lại", "Index")
 </p>
+
+
+

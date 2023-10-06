@@ -14,11 +14,19 @@ namespace demo2_mp.Controllers
     {
         private dbEntities1 db = new dbEntities1();
 
+        //Danh sách sản phẩm - Trang User
         public ActionResult ProductList()
         {
             var products = db.Products.Include(p => p.Category1);
             return View(products.ToList());
         }
+
+        //Chi tiết sản phẩm
+        public ActionResult ChitietSP(int id)
+        {
+            return View(db.Products.Where(s => s.ProductID == id).FirstOrDefault());
+        }
+
 
         // GET: Products
         public ActionResult Index()

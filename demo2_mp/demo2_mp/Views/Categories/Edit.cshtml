@@ -10,12 +10,12 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Loại sản phẩm</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        
+
         @Html.HiddenFor(model => model.IDCate)
 
         <div class="form-group">
@@ -37,3 +37,7 @@
 <div>
     @Html.ActionLink("Quay lại", "Index")
 </div>
+
+
+
+

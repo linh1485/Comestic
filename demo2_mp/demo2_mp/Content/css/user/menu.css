@@ -303,5 +303,25 @@ li {
 }
 /*Hết phần FOOTER*/
 
-body {
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #442929;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: #9F8772;
+    font-family: 'Nunito', sans-serif;
 }

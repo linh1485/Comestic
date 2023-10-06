@@ -1,0 +1,40 @@
+﻿@model demo2_mp.Models.Product
+
+@{
+    ViewBag.Title = "ChitietSP";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>ChitietSP</h2>
+
+
+<div class="item-container">
+    <div class="grid">
+        <div class="grid-row">
+            <div class="grid-column-5">
+                <div class="item-img">
+                    <img src="~/Content/img/@Model.ImagePro" width="300" height="300" />
+                </div>
+            </div>
+            <div class="grid-column-7">
+                <div class="item-info">
+                    <p class="item-name">
+                        @Html.DisplayFor(model => model.NamePro)
+                    </p>
+                    <p class="item-name">
+                        @Html.DisplayFor(model => model.DecriptionPro)
+                    </p>
+                    <div class="item-price">
+                        <p class="price-curent">
+                            @Html.DisplayFor(model => model.Price)
+                        </p>
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="~/Products/ProductList"><button class="cart">Quay lại</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
