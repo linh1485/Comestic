@@ -165,12 +165,12 @@
 }
 
 .boxpro {
-    height: 600px;
+    height: 400px;
     width: 300px;
 }
 
 .boxpro2 {
-    height: 300px;
+    height: 200px;
     width: 150px;
 }
 
@@ -182,15 +182,15 @@
 
 
 .sizeimg {
-    height: 250px;
-    width: 200px;
+    height: 220px;
+    width: 170px;
     margin-left: 20px;
     margin-top: 10px;
-    border-radius: 6px
+    border-radius: 16px;
 }
 
 .boxdescription {
-    height: 100px;
+    height: 60px;
     width: 180px;
     background-color: none;
     margin-left: 20px;
@@ -206,8 +206,6 @@
 
 .margindes2 {
     color: #29130d;
-    height: 300px;
-    width: 180px;
     font-family: 'Nunito', sans-serif;
     text-align: center;
 }
@@ -221,10 +219,10 @@
 /*dau goi buoi*/
 #banner_2 {
     width: 100%;
-    background-image: url('../../img/daugoibuoi2.png');
+    background-image: url('../../img/daugoibuoi2.jpg');
     height: 463px;
-    margin-top: 40px;
     display: flex;
+    margin-top: 40px;
     padding: 0px 133px;
     position: relative;
 }

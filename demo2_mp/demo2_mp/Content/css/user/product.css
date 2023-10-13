@@ -1,0 +1,144 @@
+﻿/*Product page*/
+#div-pro-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: none;
+    font-family: 'Nunito', sans-serif;
+    color: #312020;
+}
+
+.box-pro {
+    height: 330px;
+    width: 280px;
+}
+
+.box-pro2 {
+    height: 200px;
+    width: 150px;
+}
+
+.box-pro2 {
+    margin: auto;
+    margin-top: 10px;
+    background-color: none;
+}
+
+
+.size-img {
+    height: 250px;
+    width: 250px;
+/*    margin-left: 10px;
+    margin-top: 15px;
+*/}
+
+.box-description {
+    height: 60px;
+    width: 180px;
+    background-color: none;
+/*    margin-left: 20px;
+    margin-top: 10px;
+*/}
+
+.margin-des {
+    margin-left: 10px;
+    padding-top: 5px;
+    font-weight: 800;
+}
+
+.box-pro {
+    margin: auto;
+    margin-top: 10px;
+    background-color: none;
+    
+}
+
+.grid {
+    /* width: 1200px; */
+    max-width: 100%;
+    margin: 0 20px;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.grid-column-2 {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top:30px;
+    /* (100/12)*2 */
+    width: 16.6667%;
+}
+
+.grid-column-2-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 8px 0;
+    /* (100/12)*2 */
+    width: 25%;
+    display: flex;
+    /*border: 1px solid black;*/
+}
+
+.grid-column-10 {
+    padding-left: 12px;
+    padding-right: 12px;
+    /* (100/12)*10 */
+    width: 83.3334%;
+}
+
+
+
+.category {
+    background-color: white;
+    border-radius: 2px;
+}
+
+.category-heading i {
+    font-size: 16px;
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+}
+
+.category-heading {
+    font-size: 18px;
+    padding: 8px 16px;
+    padding-top: 16px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.category-list {
+    /* (top-right-bottom-left) */
+    padding: 2px 0 8px 0;
+    margin-left: 20px;
+}
+/* .category-item{
+ 
+} */
+.category-item-link a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+}
+
+.category-item-link:hover {
+    color: #F56606;
+}
+
+.box-description a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.box-description .margin-des {
+    text-align: center;
+    color: black;
+    display: block;
+    font-family: 'Nunito', sans-serif;
+}

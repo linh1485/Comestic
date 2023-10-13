@@ -53,11 +53,11 @@ html, body {
 }
 
 .sidebar a {
-    color: #ffffff;
+    border: none;
+    color: antiquewhite;
     display: block;
     padding: 15px 15px;
     text-decoration: none;
-
 }
 
 

@@ -172,18 +172,21 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\admin\index.css" />
     <Content Include="Content\css\admin\menu.css" />
     <Content Include="Content\css\user\about_us.css" />
+    <Content Include="Content\css\user\ctsp.css" />
+    <Content Include="Content\css\user\danhmuc.css" />
     <Content Include="Content\css\user\index.css" />
     <Content Include="Content\css\user\menu.css" />
-    <Content Include="Content\css\user\products.css" />
+    <Content Include="Content\css\user\product.css" />
     <Content Include="Content\font\all.css" />
     <Content Include="Content\font\all.js" />
     <Content Include="Content\img\2bidao.jpg" />
     <Content Include="Content\img\2ttbccaphe.jpg" />
     <Content Include="Content\img\bodysangmin.png" />
     <Content Include="Content\img\combophuchoi.png" />
-    <Content Include="Content\img\daugoibuoi2.png" />
+    <Content Include="Content\img\daugoibuoi2.jpg" />
     <Content Include="Content\img\duongammoi.jpg" />
     <Content Include="Content\img\gelbidao.jpg" />
     <Content Include="Content\img\gelruamat310ml.jpg" />
@@ -261,6 +264,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\ProductList.cshtml" />
     <Content Include="Views\Products\ChitietSP.cshtml" />
+    <Content Include="Views\Categories\CategoryPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,9 +15,28 @@ namespace demo2_mp.Controllers
         private dbEntities1 db = new dbEntities1();
 
         //Danh sách sản phẩm - Trang User
-        public ActionResult ProductList()
+        public ActionResult ProductList(string category, string SearchString, double min = double.MinValue, double max = double.MaxValue)
         {
+            // Tạo Products và có tham chiếu đến Category
             var products = db.Products.Include(p => p.Category1);
+            // Tìm kiếm chuỗi truy vấn theo category
+            if (category == null)
+            {
+                products = db.Products.OrderByDescending(x => x.NamePro);
+            }
+           
+
+            //Tìm kiếm chuỗi truy vấn theo NamePro, nếu chuỗi truy vấn SearchString khác rỗng, null
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = products.Where(s => s.NamePro.Contains(SearchString));
+            }
+            // Tìm kiếm chuỗi truy vấn theo đơn giá
+            if (min >= 0 && max > 0)
+            {
+                products = db.Products.OrderByDescending(x => x.Price).Where(p => (double)p.Price >= min && (double)p.Price <= max);
+            }
+
             return View(products.ToList());
         }
 

@@ -14,6 +14,15 @@ namespace demo2_mp.Controllers
     {
         private dbEntities1 db = new dbEntities1();
 
+
+        // Action PartialViewResult
+        [ChildActionOnly]
+        public PartialViewResult CategoryPartial()
+        {
+            var cateList = db.Categories.ToList();
+            return PartialView(cateList);
+        }
+
         // GET: Categories
         public ActionResult Index()
         {

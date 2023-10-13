@@ -52,6 +52,8 @@
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.ImagePro, null, new { type = "file", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ImagePro, "", new { @class = "text-danger" })
+                @*<img src="~/Content/img/@Model.ImagePro" width="200" height="200" />*@
+
             </div>
         </div>
 

@@ -5,137 +5,60 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<h2>ProductList</h2>
 
-<link href="~/Content/css/user/products.css" rel="stylesheet" />
+<link href="~/Content/css/user/product.css" rel="stylesheet" />
 <body style="background-color: #fff8f1 ;">
-    <h2 style="text-align:center;">DƯỠNG DA</h2>
+    <div class="grid">
+        <div class="grid-row">
+            @*<div>
+                <h2 style="text-align:center;padding-top:30px"></h2>
+            </div>*@
 
-    <div id="div-pro-list">
-
-        @foreach (var pro in Model)
-        {
-            <div class="box-pro">
-
-                <div class="box-description">
-                    <a href="/Products/ChitietSP/@pro.ProductID">
-                        <img src="~/Content/img/@pro.ImagePro" class="size-img" />
-                        <p class="margin-des" style=" font-family: 'Nunito', sans-serif">@Html.DisplayFor(model => pro.NamePro)</p>
-                        <p class="margin-des" style=" font-family: 'Nunito', sans-serif">@Html.DisplayFor(model => pro.Price)</p>
-                    </a>
+            <div class="grid-column-2">
+                <div class="category">
+                    @{ Html.RenderAction("CategoryPartial", "Categories");}
                 </div>
             </div>
 
-        }
+            <div class="grid-column-10">
+                @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+                {
+                    <div class="filler">
+                        <span class="home-filler-lable">Tên sản phẩm</span>
+                        <input class="home-filler-text" type="text" name="SearchString">
+                        <button class="home-filler-btn">Tìm kiếm</button>
+                        <span class="home-filler-lable">Đơn giá từ</span>
+                        <input class="home-filler-text" type="text" name="min">
+                        <span class="home-filler-lable">Đến</span>
+                        <input class="home-filler-text" type="text" name="max">
+                        <button class="home-filler-btn">Tìm giá</button>
+                    </div>
+                }
+                <div id="div-pro-list">
 
+                    @foreach (var pro in Model)
+                    {
+                        <div class="box-pro">
 
-        @*<div class="box-pro">
-            <div><img src="~/Content/img/matnabidao.jpg" class="size-img" /></div>
-            <div class="box-description">
+                            <div class="box-description">
+                                <a href="/Products/ChitietSP/@pro.ProductID">
+                                    <img src="~/Content/img/@pro.ImagePro" class="size-img" />
+                                    <p class="margin-des">@Html.DisplayFor(model => pro.NamePro)</p>
+                                    <p class="margin-des">@Html.DisplayFor(model => pro.Price)</p>
+                                </a>
 
-                <p class="margin-des" style=" font-family: 'Nunito', sans-serif">Mặt nạ bí đao 100ml</p>
-                <p class="margin-des" style=" font-family: 'Nunito', sans-serif">345,000đ</p>
+                            </div>
+                        </div>
 
+                    }
 
-            </div>
+                </div>
+            </div>   
         </div>
-        <div class="box-pro">
-            <img src="~/Content/img/matnahoahong.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style=" font-family: 'Nunito', sans-serif">Mặt nạ hoa hồng 100ml</p>
-                <p class="margin-des" style=" font-family: 'Nunito', sans-serif">345,000đ</p>
-            </div>
-        </div>
-
-
-
-        <div class="box-pro">
-            <img src="~/Content/img/nuoctaytranghoahong.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito' , sans-serif">Nước tẩy trang hoa hồng 310ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">245,000đ</p>
-
-            </div>
-        </div>
-
-
-        <div class="box-pro">
-            <img src="~/Content/img/nuocnghehungyen.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Nước nghệ Hưng Yên 140ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">195,000đ</p>
-
-            </div>
-        </div>
-        <div class="box-pro">
-            <img src="~/Content/img/tinhchatbidao.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Tinh chất bí đao N15 70ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">495,000đ</p>
-
-            </div>
-        </div>
-        <div class="box-pro">
-            <img src="~/Content/img/tinhchatnghehungyen.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Tinh chất nghệ Hưng Yên 30ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">325,000đ</p>
-
-            </div>
-        </div>
-
-        <div class="box-pro">
-            <img src="~/Content/img/tinhchathoahong.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Tinh chất hoa hồng 30ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">265,000đ</p>
-
-            </div>
-        </div>
-        <div class="box-pro">
-            <img src="~/Content/img/ttbccaphe.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Cà phê Đắk Lắk làm sạch da chết mặt 150ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">165,000đ</p>
-
-            </div>
-        </div>
-        <div class="box-pro">
-            <img src="~/Content/img/thachbidao.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Thạch bí đao 100ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">385,000đ</p>
-
-            </div>
-        </div>
-
-
-
-        <div class="box-pro">
-            <img src="~/Content/img/gelbidao.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Gel bí đao rửa mặt 140ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">195,000đ</p>
-
-            </div>
-        </div>
-        <div class="box-pro">
-            <img src="~/Content/img/xitkhoangnghe.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Xịt khoáng nghệ Hưng Yên 130ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">215,000đ</p>
-
-            </div>
-        </div>
-        <div class="box-pro">
-            <img src="~/Content/img/kemchongnang.jpg" class="size-img" />
-            <div class="box-description">
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">Kem chống nắng bí đao 50ml</p>
-                <p class="margin-des" style="font-family: 'Nunito', sans-serif">385,000đ</p>
-
-            </div>
-        </div>*@
-
     </div>
 </body>
+
+<style>
+    
+</style>
 
