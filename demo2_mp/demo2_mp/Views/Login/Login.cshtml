@@ -6,71 +6,152 @@
 }
 
 
-<div class="bg-login">
-    <div class="wrapper">
-        <h2>Đăng nhập</h2>
-        <br>
-        @using (Html.BeginForm("LoginAcount", "Login"))
-        {
-            @Html.AntiForgeryToken()
-            <form action="#">
-                <div class="input">
-                    <p>Username: </p>
-                    @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error" })
-                    @Html.ValidationMessageFor(model => model.NameUser)
-                </div>
+@*<div class="bg-login">
+        <div class="wrapper">
+            <h2>Đăng nhập</h2>
+            <br>
+            @using (Html.BeginForm("LoginAcount", "Login"))
+            {
+                @Html.AntiForgeryToken()
+                <form action="#">
+                    <div class="input">
+                        <p>Username: </p>
+                        @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error" })
+                        @Html.ValidationMessageFor(model => model.NameUser)
+                    </div>
 
-                <div class="input">
-                    <p>Password: </p>
-                    <p>@Html.PasswordFor(model => model.PasswordUser)</p>
-                    @Html.ValidationMessageFor(model => model.PasswordUser)
-                    @if (ViewBag.ErrorInfo != null)
-                    {
-                        <p>@ViewBag.ErrorInfo</p>
-                    }
-                </div>
-                <br />
-                <br />
-                <div class="input-login">
-                    <input type="submit" value="Đăng nhập">
-                </div>
-                <br />
-                <div class="text">
-                    <span><i>Bạn mới biết đến EverLove? </i></span>
-                    <a href="@Url.Action("Register", "Login")">Đăng ký ngay</a>
-                </div>
-            </form>
-        }
+                    <div class="input">
+                        <p>Password: </p>
+                        <p>@Html.PasswordFor(model => model.PasswordUser)</p>
+                        @Html.ValidationMessageFor(model => model.PasswordUser)
+                        @if (ViewBag.ErrorInfo != null)
+                        {
+                            <p>@ViewBag.ErrorInfo</p>
+                        }
+                    </div>
+                    <br />
+                    <br />
+                    <div class="input-login">
+                        <input type="submit" value="Đăng nhập">
+                    </div>
+                    <br />
+                    <div class="text">
+                        <span><i>Bạn mới biết đến EverLove? </i></span>
+                        <a href="@Url.Action("Register", "Login")">Đăng ký ngay</a>
+                    </div>
+                </form>
+            }
 
+        </div>
     </div>
-</div>
 
 
+    @using (Html.BeginForm("Register", "Login"))
+    {
+        <div class="bg-register">
+            <div class="wrapper">
+                <h2>Đăng ký</h2>
+                <br>
+                <form action="#">
 
-@*<body style="margin-top: 100px ">
+                    @Html.ValidationSummary(true)
+                    <div class="input">
+                        <p class="tieude">Họ và tên: </p>
+                        @Html.TextBox("FullName", null, new { @class = "form-control", @id = "name", required = "required" })
+                    </div>
 
-    <div class="container" id="container" style="position: absolute">
+                    <div class="input">
+                        <p class="tieude">Email: </p>
+                        @Html.TextBox("Email", null, new { @class = "form-control", @id = "email", type = "email", required = "required" })
+                    </div>
+
+                    <div class="input">
+                        <p class="tieude">Số điện thoại: </p>
+                        @Html.TextBox("PhoneNumber", null, new { @class = "form-control", @id = "dienthoai", required = "required" })
+                    </div>
+
+                    <div class="input">
+                        <p class="tieude">Giới tính: </p>
+                        @Html.TextBox("Gender", null, new { @class = "form-control", @id = "gioitinh", required = "required" })
+                    </div>
+                    <div class="input">
+                        <p class="tieude">Ngày sinh: </p>
+                        @Html.TextBox("DOB", null, new { @class = "form-control", type = "date", placeholder = "mm/dd/yyyy" })
+                    </div>
+                    <div class="input">
+                        <p class="tieude">Địa chỉ</p>
+                        @Html.TextBox("DiaChi", null, new { @class = "form-control", @id = "DiaChi", required = "required" })
+                    </div>
+                    <div class="input">
+                        <p class="tieude">Username: </p>
+                        @Html.TextBox("NameUser", null, new { @class = "form-control", @id = "Username", required = "required" })
+                    </div>
+
+                    <div class="input">
+                        <p class="tieude">Password: </p>
+                        <p>@Html.PasswordFor(model => model.PasswordUser)</p>
+                        <p style="color:black;">@Html.ValidationMessageFor(model => model.PasswordUser)</p>
+                        @if (ViewBag.ErrorRegister != null)
+                        {
+                            <p>@ViewBag.ErrorRegister</p>
+                        }
+                    </div>
+                    <div class="input-submit">
+                        <input type="submit" value="Đăng ký"> <br>
+                    </div>
+                    <br>
+                    <div class="text">
+                        <span><i>Bạn đã có tài khoản?</i></span>
+                        <a href="@Url.Action("Login", "Login")">Đăng nhập</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    }*@
+<link href="~/Content/css/user/login.css" rel="stylesheet" />
+
+
+<div class="body">
+    <div class="container-body" id="container" style="position: absolute">
         <div class="form-container sign-up-container">
             <form action="#">
                 <h1>Create Account</h1>
 
                 <span>or use your email for registration</span>
                 <input type="text" placeholder="Name" />
+
                 <input type="text" placeholder="Username" />
                 <input type="password" placeholder="Password" />
                 <button style="background-color: #9F8772">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
+            @using (Html.BeginForm("LoginAcount", "Login"))
+            {
+                @Html.AntiForgeryToken()
 
-                <span>or use your account</span>
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button style="background-color: #9F8772">Sign In</button>
-            </form>
+                <form action="#">
+                    <h1>Sign in</h1>
+
+                    <span>or use your account</span>
+                    @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error", type = "text" ,placeholder = "Username" })
+                    @Html.ValidationMessageFor(model => model.NameUser)
+
+                    <input type="password" placeholder="Password" />
+                    <p>@Html.PasswordFor(model => model.PasswordUser)</p>
+                    @Html.ValidationMessageFor(model => model.PasswordUser)
+                    @if (ViewBag.ErrorInfo != null)
+                    {
+                        <p>@ViewBag.ErrorInfo</p>
+                    }
+
+                    <a href="#">Forgot your password?</a>
+                    <button style="background-color: #9F8772">Sign In</button>
+                </form>
+
+
+            }
         </div>
         <div class="overlay-container">
             <div class="overlay">
@@ -87,19 +168,19 @@
             </div>
         </div>
     </div>
-</body>*@
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
 
+        signUpButton.addEventListener('click', () => {
+            container.classList.add('right-panel-active');
+        });
 
-<script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
+        signInButton.addEventListener('click', () => {
+            container.classList.remove('right-panel-active');
+        });
+    </script>
 
-    signUpButton.addEventListener('click', () => {
-        container.classList.add('right-panel-active');
-    });
+</div>
 
-    signInButton.addEventListener('click', () => {
-        container.classList.remove('right-panel-active');
-    });
-</script>

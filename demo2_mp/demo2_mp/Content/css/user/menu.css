@@ -18,7 +18,7 @@
 
 #header {
     background: #9F8772;
-    height: 60px;
+    height: 77px;
     position: fixed;
     top: 0;
     left: 0;
@@ -37,6 +37,7 @@
     #container-head #logo-name {
         margin-right: 100px;
         margin-left: 50px;
+        margin-top: 10px;
     }
 
 
