@@ -1,0 +1,72 @@
+﻿@model demo2_mp.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+@using (Html.BeginForm("Register", "Login" ))
+{
+    <div class="bg-register">
+        <div class="wrapper">
+            <h2>Đăng ký</h2>
+            <br>
+            <form action="#">
+
+                @Html.ValidationSummary(true)
+                <div class="input">
+                    <p class="tieude">Họ và tên: </p>
+                    @Html.TextBox("FullName", null, new { @class = "form-control", @id = "name", required = "required" })
+                </div>
+
+                <div class="input">
+                    <p class="tieude">Email: </p>
+                    @Html.TextBox("Email", null, new { @class = "form-control", @id = "email", type = "email", required = "required" })
+                </div>
+
+                <div class="input">
+                    <p class="tieude">Số điện thoại: </p>
+                    @Html.TextBox("PhoneNumber", null, new { @class = "form-control", @id = "dienthoai", required = "required" })
+                </div>
+
+                <div class="input">
+                    <p class="tieude">Giới tính: </p>
+                    @Html.TextBox("Gender", null, new { @class = "form-control", @id = "gioitinh", required = "required" })
+                </div>
+                <div class="input">
+                    <p class="tieude">Ngày sinh: </p>
+                    @Html.TextBox("DOB", null, new { @class = "form-control", type = "date", placeholder = "mm/dd/yyyy" })
+                </div>
+                <div class="input">
+                    <p class="tieude">Địa chỉ</p>
+                    @Html.TextBox("DiaChi", null, new { @class = "form-control", @id = "DiaChi", required = "required" })
+                </div>
+                <div class="input">
+                    <p class="tieude">Username: </p>
+                    @Html.TextBox("NameUser", null, new { @class = "form-control", @id = "Username", required = "required" })
+                </div>
+
+                <div class="input">
+                    <p class="tieude">Password: </p>
+                    <p>@Html.PasswordFor(model => model.PasswordUser)</p>
+                    <p style="color:black;">@Html.ValidationMessageFor(model => model.PasswordUser)</p>
+                    @if (ViewBag.ErrorRegister != null)
+                    {
+                        <p>@ViewBag.ErrorRegister</p>
+                    }
+                </div>
+                <div class="input-submit">
+                    <input type="submit" value="Đăng ký"> <br>
+                </div>
+                <br>
+                <div class="text">
+                    <span><i>Bạn đã có tài khoản?</i></span>
+                    <a href="@Url.Action("Login", "Login")">Đăng nhập</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+}
+

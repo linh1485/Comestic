@@ -1,0 +1,105 @@
+﻿@model demo2_mp.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<div class="bg-login">
+    <div class="wrapper">
+        <h2>Đăng nhập</h2>
+        <br>
+        @using (Html.BeginForm("LoginAcount", "Login"))
+        {
+            @Html.AntiForgeryToken()
+            <form action="#">
+                <div class="input">
+                    <p>Username: </p>
+                    @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error" })
+                    @Html.ValidationMessageFor(model => model.NameUser)
+                </div>
+
+                <div class="input">
+                    <p>Password: </p>
+                    <p>@Html.PasswordFor(model => model.PasswordUser)</p>
+                    @Html.ValidationMessageFor(model => model.PasswordUser)
+                    @if (ViewBag.ErrorInfo != null)
+                    {
+                        <p>@ViewBag.ErrorInfo</p>
+                    }
+                </div>
+                <br />
+                <br />
+                <div class="input-login">
+                    <input type="submit" value="Đăng nhập">
+                </div>
+                <br />
+                <div class="text">
+                    <span><i>Bạn mới biết đến EverLove? </i></span>
+                    <a href="@Url.Action("Register", "Login")">Đăng ký ngay</a>
+                </div>
+            </form>
+        }
+
+    </div>
+</div>
+
+
+
+@*<body style="margin-top: 100px ">
+
+    <div class="container" id="container" style="position: absolute">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" />
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <button style="background-color: #9F8772">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1>
+
+                <span>or use your account</span>
+                <input type="text" placeholder="Username" />
+                <input type="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button style="background-color: #9F8772">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left" style="background-color: #603838">
+                    <h1>Welcome Back!</h1>
+                    <p></p>
+                    <button class="ghost" id="signIn" style="background-color: #9F8772">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right" style="background-color: #603838">
+                    <h1>Hello, Friend!</h1>
+                    <p></p>
+                    <button class="ghost" id="signUp" style="background-color: #9F8772">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>*@
+
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+</script>

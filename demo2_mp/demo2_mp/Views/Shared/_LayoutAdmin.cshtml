@@ -18,10 +18,18 @@
     <div class="container">
         <aside class="sidebar" style="background-color: #603838; color: antiquewhite; text-decoration: none; padding: 5px 10px; ">
             <div id="logo-name">
-                <h1>EverLove</h1>
+                <a href="~/Home/IndexAdmin"><h1>EverLove</h1></a>
             </div>
-            <ul>
-                <li><a href="">Tên Admin</a></li>
+            <ul>               
+                <li>
+                    <a>
+                        @if (Session["ID"] == null)
+                        {
+                            <span>Tên Admin</span>
+                        }
+                        @Session["FullName"]
+                    </a>                  
+                </li>
                 <li><a href="">Quản Lý Khách Hàng</a></li>
                 <li><a href="~/Categories/Index">Quản Lý Loại Sản Phẩm</a></li>
                 <li><a href="~/Products/Index">Quản Lý Sản Phẩm</a></li>
@@ -34,7 +42,10 @@
             @RenderBody()
         </main>
         <header class="header">
-            <button class="logout-button">Thoát</button>
+            <a href="@Url.Action("Logout","Login")">
+                <input class="logout-button" value="Thoat"/>
+            </a>
+            @*<button class="logout-button">Thoát</button>*@
         </header>
     </div>
 

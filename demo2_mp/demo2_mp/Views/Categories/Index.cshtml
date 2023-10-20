@@ -87,14 +87,14 @@
                                     <td>@Html.DisplayFor(modelItem => item.NameCate) </td>
                                     <td align="center">
                                         @*<a class="btn btn-default"><em class="fa fa-pencil"></em></a>*@
-                                        <!--<div class="btn btn-default">@Html.ActionLink("Sửa", "Edit", new { id = item.IDCate.Trim() })</div>
-                                        <div class="btn btn-default">@Html.ActionLink("Xóa", "Delete", new { id = item.IDCate.Trim() })</div>-->
+                                        <!--<div class="btn btn-default">@Html.ActionLink("Sửa", "Edit", new { id = item.IDCate })</div>
+                                        <div class="btn btn-default">@Html.ActionLink("Xóa", "Delete", new { id = item.IDCate})</div>-->
                                         @*<a class="btn btn-danger"><em class="fa fa-trash"></em></a>*@
 
 
-                                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDCate.Trim() }) |
-                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDCate.Trim() }) |
-                                        @Html.ActionLink("Xóa", "Delete", new { id = item.IDCate.Trim() })
+                                        @Html.ActionLink("Sửa", "Edit", new { id = item.IDCate }) |
+                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.IDCate }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.IDCate })
 
                                     </td>
 

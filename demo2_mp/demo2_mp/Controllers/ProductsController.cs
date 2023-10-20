@@ -12,10 +12,10 @@ namespace demo2_mp.Controllers
 {
     public class ProductsController : Controller
     {
-        private dbEntities1 db = new dbEntities1();
+        private dbEntities2 db = new dbEntities2();
 
         //Danh sách sản phẩm - Trang User
-        public ActionResult ProductList(string category, string SearchString, double min = double.MinValue, double max = double.MaxValue)
+        public ActionResult ProductList(int? category, string SearchString, double min = double.MinValue, double max = double.MaxValue)
         {
             // Tạo Products và có tham chiếu đến Category
             var products = db.Products.Include(p => p.Category1);
@@ -24,7 +24,11 @@ namespace demo2_mp.Controllers
             {
                 products = db.Products.OrderByDescending(x => x.NamePro);
             }
-           
+            else
+            {
+                products = db.Products.OrderByDescending(x => x.Category).Where(x => x.Category == category);
+            }
+
 
             //Tìm kiếm chuỗi truy vấn theo NamePro, nếu chuỗi truy vấn SearchString khác rỗng, null
             if (!String.IsNullOrEmpty(SearchString))

@@ -20,7 +20,7 @@ namespace demo2_mp.Models
             this.Products = new HashSet<Product>();
         }
     
-        public string IDCate { get; set; }
+        public int IDCate { get; set; }
         public string NameCate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

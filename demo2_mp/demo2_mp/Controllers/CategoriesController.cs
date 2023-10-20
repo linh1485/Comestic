@@ -12,7 +12,7 @@ namespace demo2_mp.Controllers
 {
     public class CategoriesController : Controller
     {
-        private dbEntities1 db = new dbEntities1();
+        private dbEntities2 db = new dbEntities2();
 
 
         // Action PartialViewResult

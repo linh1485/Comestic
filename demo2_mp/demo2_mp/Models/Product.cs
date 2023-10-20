@@ -23,7 +23,7 @@ namespace demo2_mp.Models
         public int ProductID { get; set; }
         public string NamePro { get; set; }
         public string DecriptionPro { get; set; }
-        public string Category { get; set; }
+        public Nullable<int> Category { get; set; }
         public Nullable<decimal> Price { get; set; }
         public string ImagePro { get; set; }
     

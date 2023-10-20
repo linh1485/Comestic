@@ -86,21 +86,23 @@
                             </div>
                             <span>3 Reviews</span>
                         </div>
-                        <div class="product-price-discount"><span>@Html.DisplayFor(model => model.Price)</span><span class="line-through">2,000,000</span></div>
+                        @*<div class="product-price-discount"><span>@Html.DisplayFor(model => model.Price)</span><span class="line-through">2,000,000</span></div>*@
                     </div>
                     <br />
-                    <br />
                     <p> @Html.DisplayFor(model => model.DecriptionPro)</p>
+                    <br />
+                    <p> @Html.DisplayFor(model => model.Price)</p>
+
 
                     @*<div class="product-count">
-                    <label for="size">Quantity</label>
-                    <form action="#" class="display-flex">
-                        <div class="qtyminus">-</div>
-                        <input type="text" name="quantity" value="1" class="qty">
-                        <div class="qtyplus">+</div>
-                    </form>
-                    <a href="#" class="round-black-btn">THÊM VÀO GIỎ HÀNG</a>
-                </div>*@
+            <label for="size">Quantity</label>
+            <form action="#" class="display-flex">
+                <div class="qtyminus">-</div>
+                <input type="text" name="quantity" value="1" class="qty">
+                <div class="qtyplus">+</div>
+            </form>
+            <a href="#" class="round-black-btn">THÊM VÀO GIỎ HÀNG</a>
+        </div>*@
                 </div>
             </div>
         </div>
