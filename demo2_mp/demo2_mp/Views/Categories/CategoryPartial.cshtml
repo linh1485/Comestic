@@ -1,0 +1,19 @@
+﻿@model IEnumerable<demo2_mp.Models.Category>
+
+<link href="~/Content/css/user/danhmuc.css" rel="stylesheet" />
+
+<h3 class="category-heading">
+    <i class="fa-solid fa-bars"></i>
+    Danh mục
+</h3>
+<ul class="category-list">
+    @{
+        foreach (var item in Model)
+        {
+            <li class="category-item-link">
+                @Html.ActionLink(item.NameCate, "ProductList", "Products", new { category = item.IDCate }, "")
+            </li>
+        }
+    }
+</ul>
+

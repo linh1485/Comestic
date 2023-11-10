@@ -1,0 +1,43 @@
+﻿@model demo2_mp.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa loại sản phẩm</h2>
+
+<h3>Bạn có chắc là xóa loại sản phẩm này?</h3>
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCate)
+        </dd>
+
+        <dt>
+            Loại sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameCate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>
+

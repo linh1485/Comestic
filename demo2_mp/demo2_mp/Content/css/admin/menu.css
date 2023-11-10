@@ -1,0 +1,82 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+.container {
+    position: relative;
+    display: flex;
+    min-height: 100px;
+}
+
+    .container #logo-name {
+        margin-right: 100px;
+        margin-left: 50px;
+    }
+
+
+.sidebar {
+    width: 300px;
+    background-color: #603838;
+    color: #fff;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 270px;
+    right: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    border: none;
+    color: antiquewhite;
+    display: block;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+
+.header {
+    background-color: #603838;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.logout-button {
+    background-color: #563434;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+    .logout-button:hover {
+        background-color: #603838;
+    }

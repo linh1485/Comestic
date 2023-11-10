@@ -1,0 +1,135 @@
+﻿html {
+    background-color: #e3d9d1;
+}
+
+.wrapper {
+    position: relative;
+    width: 550px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 100px auto;
+    min-height: 350px;
+}
+
+    .wrapper h1 {
+        position: relative;
+        color: #9F8772;
+        padding-left: 110px;
+        margin-bottom: 10px;
+    }
+
+    .wrapper form {
+        margin-top: 20px;
+    }
+
+        .wrapper form .inputbox {
+            height: 45px;
+            margin-left: 40px;
+            margin-bottom: 10px;
+        }
+
+form .inputbox span {
+    font-weight: 600;
+    margin-left: 40px;
+}
+
+form .inputbox input {
+    height: 25px;
+    width: 320px;
+    padding: 0 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    margin-left: 5px;
+}
+
+form select {
+    width: 150px;
+    height: 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+
+#address {
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+    #address span {
+        margin-left: 10px;
+        font-weight: 600;
+    }
+
+    #address input {
+        height: 25px;
+        width: 320px;
+        padding: 0 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 2px solid grey;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        margin-left: 5px;
+    }
+
+
+.wrapper {
+    position: relative;
+    width: 550px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 100px auto;
+    min-height: 350px;
+}
+
+    .wrapper form .inputbox {
+        height: 45px;
+        margin-left: 85px;
+        margin-bottom: 10px;
+    }
+
+form .inputbox span {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+#address {
+    margin-bottom: 10px;
+    margin-left: 85px;
+}
+
+    #address span {
+        margin-left: 10px;
+        font-weight: 600;
+    }
+
+.btn-primary {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #9F8772;
+    color: #fff;
+    font-size: 14px;
+    margin-left: 100px;
+}
+/*.btn-primary a {
+            margin: 25px 30px;
+
+        }*/
+
+.btn-submit input {
+    height: 26px;
+    width: 100px;
+    background-color: #9F8772;
+    border: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin-left: 100px;
+}

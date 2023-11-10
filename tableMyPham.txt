@@ -1,0 +1,64 @@
+use master 
+if exists (select * from sysdatabases where name ='ICIE')
+	drop database ICIE
+go
+create database ICIE
+go
+use ICIE
+go
+Create Table Admin
+(
+	admin_id int primary key ,
+	username nvarchar(50) not null,
+	password nvarchar(50) not null,
+	full_name nvarchar(100) not null,
+)
+;
+Create Table LoaiSanPham
+(
+	maloaisp int primary key ,
+	tenloaisp nvarchar(50) not null,
+
+)
+;
+Create Table SanPham
+(
+	masp int primary key  ,
+	ten_sp nvarchar(50) not null,
+	gia Decimal(10,2) not null,
+	maloaisp int  not null,
+	Foreign key (maloaisp) References LoaiSanPham(maloaisp)
+
+)
+	;
+
+
+Create Table KhachHang
+(
+	makh int primary key  ,
+	tenkh nvarchar(50) not null,
+	email nvarchar(100) not null,
+
+)
+;
+Create Table CreateOrder
+(
+	Order_Id int primary key,
+	makh int ,
+	ngay_dat datetime not null, 
+	Foreign key (makh) References KhachHang(makh)
+	)
+;
+Create Table OrderItem
+(
+	OderItem_Id int primary key ,
+	masp int ,
+	Order_Id int ,
+	soluong int not null,
+	gia Decimal(10,2) not null,
+	Foreign key (masp) References SanPham(masp),
+	Foreign key (Order_Id) References CreateOrder(Order_Id)
+)
+;
+
+
