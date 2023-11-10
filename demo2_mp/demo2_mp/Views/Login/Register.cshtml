@@ -6,67 +6,147 @@
 }
 
 
-@using (Html.BeginForm("Register", "Login" ))
-{
-    <div class="bg-register">
-        <div class="wrapper">
-            <h2>Đăng ký</h2>
-            <br>
-            <form action="#">
 
-                @Html.ValidationSummary(true)
-                <div class="input">
-                    <p class="tieude">Họ và tên: </p>
-                    @Html.TextBox("FullName", null, new { @class = "form-control", @id = "name", required = "required" })
-                </div>
 
-                <div class="input">
-                    <p class="tieude">Email: </p>
-                    @Html.TextBox("Email", null, new { @class = "form-control", @id = "email", type = "email", required = "required" })
-                </div>
+<div class="body-login">
+    <div class="container-login" id="container" style="position: absolute">
+        <div class="form-container sign-in-container">
 
-                <div class="input">
-                    <p class="tieude">Số điện thoại: </p>
-                    @Html.TextBox("PhoneNumber", null, new { @class = "form-control", @id = "dienthoai", required = "required" })
-                </div>
+            @using (Html.BeginForm("Register", "Login"))
+            {
 
-                <div class="input">
-                    <p class="tieude">Giới tính: </p>
-                    @Html.TextBox("Gender", null, new { @class = "form-control", @id = "gioitinh", required = "required" })
-                </div>
-                <div class="input">
-                    <p class="tieude">Ngày sinh: </p>
-                    @Html.TextBox("DOB", null, new { @class = "form-control", type = "date", placeholder = "mm/dd/yyyy" })
-                </div>
-                <div class="input">
-                    <p class="tieude">Địa chỉ</p>
-                    @Html.TextBox("DiaChi", null, new { @class = "form-control", @id = "DiaChi", required = "required" })
-                </div>
-                <div class="input">
-                    <p class="tieude">Username: </p>
-                    @Html.TextBox("NameUser", null, new { @class = "form-control", @id = "Username", required = "required" })
-                </div>
-
-                <div class="input">
-                    <p class="tieude">Password: </p>
-                    <p>@Html.PasswordFor(model => model.PasswordUser)</p>
-                    <p style="color:black;">@Html.ValidationMessageFor(model => model.PasswordUser)</p>
-                    @if (ViewBag.ErrorRegister != null)
-                    {
-                        <p>@ViewBag.ErrorRegister</p>
-                    }
-                </div>
-                <div class="input-submit">
-                    <input type="submit" value="Đăng ký"> <br>
-                </div>
+                <h1>Đăng ký</h1>
                 <br>
-                <div class="text">
-                    <span><i>Bạn đã có tài khoản?</i></span>
-                    <a href="@Url.Action("Login", "Login")">Đăng nhập</a>
-                </div>
-            </form>
+                <form action="#">
+
+                    @Html.ValidationSummary(true)
+                    <div class="input">
+                        @Html.TextBox("FullName", null, new { @class = "form-control", @id = "name", required = "required" ,placeholder="Nhập họ tên"})
+                    </div>
+
+                    <div class="input">
+                        @Html.TextBox("Email", null, new { @class = "form-control", @id = "email", type = "email", required = "required", placeholder = "Nhập email" })
+                    </div>
+
+                    <div class="input">
+                        @Html.TextBox("NameUser", null, new { @class = "form-control", @id = "Username", required = "required", placeholder = "Nhập username" })
+                    </div>
+
+                    <div class="input">
+                        <p>@Html.PasswordFor(model => model.PasswordUser, new { placeholder = "Password" })</p>
+                        <p style="color:black;">@Html.ValidationMessageFor(model => model.PasswordUser)</p>
+                        @if (ViewBag.ErrorRegister != null)
+                        {
+                            <p>@ViewBag.ErrorRegister</p>
+                        }
+                    </div>
+                    <button style="background-color: #9f8772">Đăng ký</button>
+
+                    <br />
+                    <div class="text">
+                        <span><i>Bạn đã có tài khoản?</i></span>
+                        <a href="@Url.Action("Login", "Login")">Đăng nhập</a>
+                    </div>
+                </form>
+
+            }
         </div>
     </div>
+</div>
 
-}
 
+
+<style>
+
+
+    .body-login {
+        background: #fff8f1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        height: 100vh;
+        z-index: 1;
+    }
+
+
+    button {
+        border-radius: 20px;
+        border: 1px solid #FF4B2B;
+        background-color: #FF4B2B;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button.ghost {
+            background-color: transparent;
+            border-color: #FFFFFF;
+        }
+
+    form {
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+    }
+
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 270px;
+    }
+
+    .container-login {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 600px;
+        max-width: 100%;
+        min-height: 500px;
+        z-index: 1;
+    }
+
+    .form-container {
+        /*    position: absolute;
+*/ top: 0;
+        height: 100%;
+        margin-top: 70px;
+    }
+
+    .sign-in-container {
+        z-index: 1;
+    }
+
+
+    .text a {
+        color: black;
+        text-decoration: none;
+    }
+
+        .text a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+</style>

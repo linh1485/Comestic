@@ -18,7 +18,7 @@
 
 #header {
     background: #9F8772;
-    height: 77px;
+    height: 60px;
     position: fixed;
     top: 0;
     left: 0;
@@ -37,7 +37,6 @@
     #container-head #logo-name {
         margin-right: 100px;
         margin-left: 50px;
-        margin-top: 10px;
     }
 
 
@@ -200,7 +199,7 @@ nav {
 }
 
 /*FOOTER*/
-.container {
+.container-footer {
     max-width: 1300px;
     margin: auto;
 }

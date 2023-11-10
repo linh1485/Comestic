@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Check out success";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+    .checkout-success {
+        /*height: 300px;*/
+        text-align: center;
+        margin: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+        .checkout-success h2 {
+            margin: 20px 0;
+        }
+
+        .checkout-success a {
+            margin-top: 60px;
+            text-decoration: none;
+            color: red;
+            background-color: #9F8772;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+</style>
+
+
+<div class="checkout-success">
+    <h2>Thanh toán thành công</h2>
+    <h2>Hẹn gặp lại quí khách</h2> <br /> <br />
+    <a href="@Url.Action("ProductList","Products")">Tiếp tục mua sắm</a>
+</div>
+
+

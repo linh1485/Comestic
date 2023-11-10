@@ -9,7 +9,7 @@
 }
 
 .box-pro {
-    height: 330px;
+    height: 390px;
     width: 280px;
 }
 
@@ -34,7 +34,7 @@
 
 .box-description {
     height: 60px;
-    width: 180px;
+    width: 260px;
     background-color: none;
 /*    margin-left: 20px;
     margin-top: 10px;
@@ -139,6 +139,6 @@
 .box-description .margin-des {
     text-align: center;
     color: black;
-    display: block;
-    font-family: 'Nunito', sans-serif;
+/*    display: block;
+*/    font-family: 'Nunito', sans-serif;
 }

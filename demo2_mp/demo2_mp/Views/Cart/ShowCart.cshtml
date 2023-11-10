@@ -1,0 +1,89 @@
+﻿@model demo2_mp.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link href="~/Content/css/user/cart.css" rel="stylesheet" />
+
+@if (Model != null)
+{
+
+    <div class="cart">
+        <div class="container-cart">
+            <h2>Giỏ Hàng</h2>
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tên Sản phẩm</th>
+                        <th>Hình</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        decimal total = item._quantity * (decimal)item._product.Price.Value;
+                        <tr>
+                            <td>@Html.DisplayFor(model => item._product.NamePro)</td>
+                            <td><img src="~/Content/img/@item._product.ImagePro" width="80px" height="80px" /></td>
+                            <td> @Html.DisplayFor(model => item._product.Price)</td>
+                            <td>
+                                @using (Html.BeginForm("Update_Cart_Quantity", "Cart"))
+                                {
+                                    <input type="hidden" value="@item._product.ProductID" name="idPro" />
+                                    <input type="number" value="@item._quantity" name="carQuantity" style="text-align:right" />
+                                    <input type="submit" value="Cập nhật" />
+                                }
+                            </td>
+                            <td>@total.ToString("#,##0").Replace(',', '.').000</td>
+                            <td>
+                                <a href="/Cart/RemoveCart/@item._product.ProductID" id="remove-item">Xóa</a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            Tổng tiền : @Model.Total_money().ToString("#,##0").Replace(',', '.').000 đồng
+                        </td>
+                    </tr>
+
+                </tfoot>
+            </table>
+
+            <div class="link-cont">
+
+                <div class="cont-buy">
+                    <a href="@Url.Action("ProductList", "Products")"> Tiếp tục mua hàng</a>
+                </div>
+
+                <div class="cont-cash">
+                    <a href="@Url.Action("CheckOut", "Cart")"> Tiếp tục thanh toán </a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+}
+
+else
+{
+    <div style="text-align: center; margin: 100px;">
+        <h2><b>GIỎ HÀNG</b></h2>
+        <br />
+        <h4>Giỏ hàng của bạn trống</h4>
+        <br />
+        <a href="@Url.Action("ProductList", "Products")" style="color: #9F8772 "> Tiếp tục mua sắm</a>
+    </div>
+}
+
+

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using demo2_mp.Models;
+using PagedList;
 
 namespace demo2_mp.Controllers
 {
@@ -15,7 +16,7 @@ namespace demo2_mp.Controllers
         private dbEntities2 db = new dbEntities2();
 
         //Danh sách sản phẩm - Trang User
-        public ActionResult ProductList(int? category, string SearchString, double min = double.MinValue, double max = double.MaxValue)
+        public ActionResult ProductList(int? category, int? page, string SearchString, double min = double.MinValue, double max = double.MaxValue)
         {
             // Tạo Products và có tham chiếu đến Category
             var products = db.Products.Include(p => p.Category1);
@@ -41,7 +42,18 @@ namespace demo2_mp.Controllers
                 products = db.Products.OrderByDescending(x => x.Price).Where(p => (double)p.Price >= min && (double)p.Price <= max);
             }
 
-            return View(products.ToList());
+            // Khai báo mỗi trang 8 sản phẩm
+            int pageSize = 8;
+            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+
+            // Nếu page = null thì đặt lại page là 1.
+            if (page == null) page = 1;
+
+            // Trả về các product được phân trang theo kích thước và số trang.
+            return View(products.ToPagedList(pageNumber, pageSize));
+
         }
 
         //Chi tiết sản phẩm

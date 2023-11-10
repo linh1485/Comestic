@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<link href="~/Content/css/user/checkout.css" rel="stylesheet" />
+
+
+<div class="wrapper">
+    <h1>Thông tin giao hàng</h1>
+    @using (Html.BeginForm("CheckOut", "Cart"))
+    {
+        <input type="hidden" name="CodeCustomer" value="@Session["ID"]" required />
+
+        <div class="inputbox">
+            <span>Họ Tên</span>
+            <br />
+            <input type="text" name="NameCustomer" value="@Session["FullName"]" required />
+        </div>
+        <div class="inputbox">
+            <span>Số điện thoại</span>
+            <br />
+            <input type="text" name="PhoneCustomer" value="@Session["Phone"]" required />
+        </div>
+        <div class="inputbox">
+            <span>Địa chỉ</span>
+            <br />
+            <input type="text" name="DiaChi" value="@Session["DiaChi"]" required />
+        </div>
+        <br />
+        <div class="btn-submit">
+            <input type="submit" value="Thanh toán" class="btn btn-danger" />
+
+        </div>
+    }
+
+
+
+</div>
+
+

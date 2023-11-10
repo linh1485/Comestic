@@ -41,10 +41,6 @@
                 <a href="@Url.Action("Login","Login") " style="margin:0 10px; text-decoration:none">
                     <i class="fa-solid fa-user" style="color: #fff;"></i>
                     <span style="color: #fff;font-size:16px;">
-                        @*@if (Session["ID"] == null)
-                        {
-                            <span>Đăng nhập</span>
-                        }*@
                         @Session["UserName"]
                     </span>
                 </a>
@@ -52,6 +48,7 @@
                     <i class="fa-solid fa-right-from-bracket" style="color: #fff;"></i>
                     <span style="color: #fff; font-size: 14px;"></span>
                 </a>
+                @Html.Action("BagCart", "Cart")
 
             </div>
         </div>
@@ -60,7 +57,7 @@
         </div>
 
         <div id="footer">
-            <div class="container">
+            <div class="container-footer">
                 <div class="row">
                     <div class="footer-col">
                         <h4>THÔNG TIN LIÊN HỆ</h4>
@@ -110,8 +107,8 @@
                     <div class="footer-col">
                         <h4>DANH MỤC</h4>
                         <ul>
-                            <li><a href="~/Home/Trangchu">Trang Chủ</a></li>
-                            <li><a href="~/Home/Gioithieu">Về Chúng Tôi</a></li>
+                            <li><a href="~/Home/Index">Trang Chủ</a></li>
+                            <li><a href="~/Home/About">Về Chúng Tôi</a></li>
                             <li><a href="~/Products/ProductList">Cửa Hàng</a></li>
 
                         </ul>

@@ -17,57 +17,16 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"><div class="pd-wrap">
-    <div class="container">
+    <div class="container-sp">
         <div class="heading-section">
 
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div id="slider" class="owl-carousel product-slider">
-                    <div class="box-pro">
-                    </div>
-                    @*<div class="box-pro">
-                <img src="" />
-            </div>
-            <div class="box-pro">
-                <img src="" />
-            </div>
-            <div class="box-pro">
-                <img src="" />
-            </div>
-            <div class="box-pro">
-                <img src="" />
-            </div>
-            <div class="box-pro">
-                <img src="" />
-            </div>*@
-
-                </div>
-                @*<div id="thumb" class="owl-carousel product-thumb">
-            <div class="box-pro2">
-                <img src="" />
-            </div>
-            <div class="box-pro2">
-                <img src="" />
-            </div>
-            <div class="box-pro2">
-                <img src="" />
-            </div>
-            <div class="box-pro2">
-                <img src="" />
-            </div>
-            <div class="box-pro2">
-                <img src="" />
-            </div>
-            <div class="box-pro2">
-                <img src="" />
-            </div>
-        </div>*@
-                <img src="~/Content/img/@Model.ImagePro" width="300" height="300" />
-
+            <div class="col-md-6">               
+                <img src="~/Content/img/@Model.ImagePro" style="width: 380px; height: 450px; margin-left: 200px " />
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="padding-right:285px">
                 <div class="product-dtl">
                     <div class="product-info">
                         <div class="product-name">@Html.DisplayFor(model => model.NamePro)</div>
@@ -93,16 +52,9 @@
                     <br />
                     <p> @Html.DisplayFor(model => model.Price)</p>
 
-
-                    @*<div class="product-count">
-            <label for="size">Quantity</label>
-            <form action="#" class="display-flex">
-                <div class="qtyminus">-</div>
-                <input type="text" name="quantity" value="1" class="qty">
-                <div class="qtyplus">+</div>
-            </form>
-            <a href="#" class="round-black-btn">THÊM VÀO GIỎ HÀNG</a>
-        </div>*@
+                    <a href="/Cart/AddToCart/@Model.ProductID"  class="round-black-btn">
+                        THÊM VÀO GIỎ HÀNG
+                    </a>
                 </div>
             </div>
         </div>
@@ -167,7 +119,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity=" sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-<script>
+@*<script>
     $(document).ready(function () {
         var slider = $("#slider");
         var thumb = $("#thumb");
@@ -248,4 +200,4 @@
             }
         });
     });
-</script>
+</script>*@

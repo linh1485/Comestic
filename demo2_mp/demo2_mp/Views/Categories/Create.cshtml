@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thêm mới</h2>
+<link href="~/Content/css/admin/create.css" rel="stylesheet"/>
+
+<h2><img src="add_icon_url" alt=" Thêm mới " width="20" height="20"></h2>
 
 @using (Html.BeginForm())
 {
@@ -42,5 +44,6 @@
 <div>
     @Html.ActionLink("Quay lại", "Index")
 </div>
+
 
 

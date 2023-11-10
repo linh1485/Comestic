@@ -25,8 +25,29 @@ namespace demo2_mp.Controllers
         // Tạo view cho khách hàng Login
         public ActionResult Login()
         {
+            if (Request.Cookies["username"] != null && Request.Cookies["password"] != null)
+            {
+                ViewBag.username = Request.Cookies["username"];
+                ViewBag.password = Request.Cookies["password"];
+            }
             return View();
         }
+
+        //
+        //public void ghinhotk(string username, string password)
+        //{
+        //    HttpCookie us = new HttpCookie("username");
+        //    HttpCookie pw = new HttpCookie("password");
+        //    us.Value = username;
+        //    pw.Value = password;
+        //    us.Expires = DateTime.Now.AddDays(1);
+        //    pw.Expires = DateTime.Now.AddDays(1);
+        //    Response.Cookies.Add(us);
+        //    Response.Cookies.Add(pw);
+
+        //}
+
+
         // Xử lý tìm kiếm UserName, password và thông báo
         [HttpPost]
         public ActionResult LoginAcount(User _user)
@@ -46,9 +67,12 @@ namespace demo2_mp.Controllers
                         ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                         db.Configuration.ValidateOnSaveEnabled = false;
                         Session["ID"] = check.ID;
-                        Session["name"] = check.FullName;
+                        Session["DiaChi"] = check.DiaChi;
                         Session["UserName"] = check.NameUser;
                         Session["FullName"] = check.FullName;
+                        Session["Phone"] = check.PhoneNumber;
+                        //var listgroup = Get
+                        //Session.Add("SESSION_GROUP",)
 
                         return RedirectToAction("Index", "Home");
 
@@ -59,6 +83,7 @@ namespace demo2_mp.Controllers
 
             return View();
 
+        }
 
             //// check là khách hàng cần tìm
             //var check = db.Users.Where(s => s.NameUser == _user.NameUser && s.PasswordUser == _user.PasswordUser).FirstOrDefault();
@@ -78,7 +103,22 @@ namespace demo2_mp.Controllers
             //    // Quay lại trang giỏ hàng với thông tin cần thiết
             //    return RedirectToAction("ProductList", "Products");
             //}
-        }
+        
+
+        //public List<string> GetListGroupID(string username)
+        //{
+        //    var data = (from a in db.UserGroups
+        //                join b in db.Users
+        //                where b.NameUser == username
+
+        //                select new
+        //                {
+        //                    UserGroupID = b.ID,
+        //                    UserGroupName = a.name
+        //                });
+        //    return data.Select(x => x.UserGroupName).ToList();
+        //}
+
 
 
         // Regíter
@@ -96,8 +136,8 @@ namespace demo2_mp.Controllers
                     ModelState.AddModelError(string.Empty, "Họ tên không được để trống");
                 if (string.IsNullOrEmpty(_user.Email))
                     ModelState.AddModelError(string.Empty, "Email không được để trống");
-                if (string.IsNullOrEmpty(_user.PhoneNumber))
-                    ModelState.AddModelError(string.Empty, "Số điện thoại không được để trống");
+                //if (string.IsNullOrEmpty(_user.PhoneNumber))
+                //    ModelState.AddModelError(string.Empty, "Số điện thoại không được để trống");
                 //if (string.IsNullOrEmpty(_user.Gender))
                 //    ModelState.AddModelError(string.Empty, "");
                 //if (string.IsNullOrEmpty(_user.DiaChi))
@@ -115,7 +155,7 @@ namespace demo2_mp.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    //_user.RoleUser = "1";
+                    
                     db.Users.Add(_user);
                     db.SaveChanges();
                 }

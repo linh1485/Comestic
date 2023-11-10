@@ -14,9 +14,9 @@
 
 
 </head>
-<body>
+<body style="min-height:100px">
     <div class="container">
-        <aside class="sidebar" style="background-color: #603838; color: antiquewhite; text-decoration: none; padding: 5px 10px; ">
+        <aside class="sidebar" style="background-color: #603838; color: antiquewhite; text-decoration: none; padding: 5px 10px; height: 2000px; position: fixed">
             <div id="logo-name">
                 <a href="~/Home/IndexAdmin"><h1>EverLove</h1></a>
             </div>
@@ -30,14 +30,14 @@
                         @Session["FullName"]
                     </a>                  
                 </li>
-                <li><a href="">Quản Lý Khách Hàng</a></li>
+                <li><a href="~/Users/Index">Quản Lý Khách Hàng</a></li>
                 <li><a href="~/Categories/Index">Quản Lý Loại Sản Phẩm</a></li>
                 <li><a href="~/Products/Index">Quản Lý Sản Phẩm</a></li>
-                <li><a href="">Quản Lý Đơn Hàng</a></li>
+                <li><a href="~/Orders/Index">Quản Lý Đơn Hàng</a></li>
                 <li><a href="~/Home/Index">Trang khách hàng</a></li>
             </ul>
         </aside>
-        <main class="content">
+        <main class="content" style="height:2000px">
             <!-- Nội dung chính  -->
             @RenderBody()
         </main>

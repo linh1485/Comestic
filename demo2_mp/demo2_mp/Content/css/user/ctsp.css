@@ -1,4 +1,4 @@
-﻿#Container {
+﻿#Container-sp {
     font-size: 15px;
     border: 10px solid #9F8772;
     width: 100%;
@@ -254,7 +254,8 @@
     }
 
 .product-info-tabs {
-    margin-top: 25px;
+    margin: 25px 200px;
+
 }
 
     .product-info-tabs .nav-tabs {

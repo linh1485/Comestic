@@ -1,0 +1,54 @@
+﻿@model IEnumerable<demo2_mp.Models.OrderPro>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<link href="~/Content/css/admin/index.css" rel="stylesheet" />
+
+<div id="container-dmsp">
+    <h2>Danh sách các đơn hàng</h2>
+    <br>
+    <div class="btn-createnew">
+        @*<a href="" class="createnew">Thêm sản phẩm mới</a>*@
+        @*@Html.ActionLink("Tạo đơn hàng mới", "Create")*@
+    </div>
+    <br>
+    <hr>
+
+    <div class="table-dmsp">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ngày Giao Hàng</th>
+                    <th>Địa Chỉ Giao Hàng</th>
+                    <th>Khách Hàng</th>
+                    <th class="thaotac">Thao tác</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOrder)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.DiaChi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User.FullName)
+                        </td>
+                        <td class="thaotac">
+                            @*@Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }) |*@
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
+
