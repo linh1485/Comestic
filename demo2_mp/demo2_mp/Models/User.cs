@@ -11,7 +11,9 @@ namespace demo2_mp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +23,22 @@ namespace demo2_mp.Models
         }
     
         public int ID { get; set; }
+        [Required(ErrorMessage = "UserName không được rỗng")]
+        [Display(Name = "UserName")]
+
         public string NameUser { get; set; }
-        public string RoleUser { get; set; }
+        [Required(ErrorMessage = "Password không được rỗng")]
+        [Display(Name = "Password")]
+
         public string PasswordUser { get; set; }
         public string Email { get; set; }
+        [Required(ErrorMessage = "Số điện thoại không được rỗng")]
+        [Display(Name = "PhoneNumber")]
+
         public string PhoneNumber { get; set; }
+        [Required(ErrorMessage = "Họ tên không được rỗng")]
+        [Display(Name = "FullName")]
+
         public string FullName { get; set; }
         public string Gender { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }

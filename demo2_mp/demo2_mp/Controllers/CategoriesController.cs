@@ -12,7 +12,7 @@ namespace demo2_mp.Controllers
 {
     public class CategoriesController : Controller
     {
-        private dbEntities2 db = new dbEntities2();
+        private dbEntities db = new dbEntities();
 
 
         // Action PartialViewResult
@@ -29,20 +29,6 @@ namespace demo2_mp.Controllers
             return View(db.Categories.ToList());
         }
 
-        // GET: Categories/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
 
         // GET: Categories/Create
         public ActionResult Create()
@@ -63,13 +49,10 @@ namespace demo2_mp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(category);
         }
 
-        // GET: Categories/Edit/5
-        [HttpGet]
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -83,9 +66,6 @@ namespace demo2_mp.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IDCate,NameCate")] Category category)
@@ -100,7 +80,7 @@ namespace demo2_mp.Controllers
         }
 
         // GET: Categories/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -117,13 +97,14 @@ namespace demo2_mp.Controllers
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Category category = db.Categories.Find(id);
             db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

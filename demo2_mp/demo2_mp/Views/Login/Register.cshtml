@@ -21,25 +21,33 @@
 
                     @Html.ValidationSummary(true)
                     <div class="input">
-                        @Html.TextBox("FullName", null, new { @class = "form-control", @id = "name", required = "required" ,placeholder="Nhập họ tên"})
+                        <p>@Html.TextBoxFor(model => model.FullName, new { style = "filed-validation-error", placeholder = "Nhập họ tên" })</p>
+                        @Html.ValidationMessageFor(model => model.FullName)
+
                     </div>
 
                     <div class="input">
-                        @Html.TextBox("Email", null, new { @class = "form-control", @id = "email", type = "email", required = "required", placeholder = "Nhập email" })
+                        <p>@Html.TextBoxFor(model => model.PhoneNumber, new { style = "filed-validation-error", placeholder = "Nhập số điện thoại" })</p>
+                        @Html.ValidationMessageFor(model => model.PhoneNumber)
+
                     </div>
 
                     <div class="input">
-                        @Html.TextBox("NameUser", null, new { @class = "form-control", @id = "Username", required = "required", placeholder = "Nhập username" })
+                        <p>@Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error", placeholder = "Nhập username" })</p>
+                        @Html.ValidationMessageFor(model => model.NameUser)
+
                     </div>
 
                     <div class="input">
-                        <p>@Html.PasswordFor(model => model.PasswordUser, new { placeholder = "Password" })</p>
+                        <p>@Html.PasswordFor(model => model.PasswordUser, new { placeholder = "Nhập password" })</p>
                         <p style="color:black;">@Html.ValidationMessageFor(model => model.PasswordUser)</p>
                         @if (ViewBag.ErrorRegister != null)
                         {
                             <p>@ViewBag.ErrorRegister</p>
                         }
                     </div>
+                    <br />
+
                     <button style="background-color: #9f8772">Đăng ký</button>
 
                     <br />
@@ -124,7 +132,7 @@
         overflow: hidden;
         width: 600px;
         max-width: 100%;
-        min-height: 500px;
+        min-height: 550px;
         z-index: 1;
     }
 

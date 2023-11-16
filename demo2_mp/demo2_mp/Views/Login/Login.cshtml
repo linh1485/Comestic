@@ -1,48 +1,9 @@
 ﻿@model demo2_mp.Models.User
 
 @{
-    ViewBag.Title = "Login";
+    //ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
-@*<div class="bg-login">
-        <div class="wrapper">
-            <h2>Đăng nhập</h2>
-            <br>
-            @using (Html.BeginForm("LoginAcount", "Login"))
-            {
-                @Html.AntiForgeryToken()
-                <form action="#">
-                    <div class="input">
-                        <p>Username: </p>
-                        @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error" })
-                        @Html.ValidationMessageFor(model => model.NameUser)
-                    </div>
-
-                    <div class="input">
-                        <p>Password: </p>
-                        <p>@Html.PasswordFor(model => model.PasswordUser)</p>
-                        @Html.ValidationMessageFor(model => model.PasswordUser)
-                        @if (ViewBag.ErrorInfo != null)
-                        {
-                            <p>@ViewBag.ErrorInfo</p>
-                        }
-                    </div>
-                    <br />
-                    <br />
-                    <div class="input-login">
-                        <input type="submit" value="Đăng nhập">
-                    </div>
-                    <br />
-                    <div class="text">
-                        <span><i>Bạn mới biết đến EverLove? </i></span>
-                        <a href="@Url.Action("Register", "Login")">Đăng ký ngay</a>
-                    </div>
-                </form>
-            }
-
-        </div>
-    </div>*@
 
 
 @*<link href="~/Content/css/user/login.css" rel="stylesheet" />*@
@@ -57,7 +18,7 @@
                 <form action="#">
                     <h1>Đăng Nhập</h1>
                     <br />
-                    @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error" , placeholder = "Username" })
+                    @Html.TextBoxFor(model => model.NameUser, new { style = "filed-validation-error", placeholder = "Username" })
                     @Html.ValidationMessageFor(model => model.NameUser)
 
                     <p>@Html.PasswordFor(model => model.PasswordUser, new { placeholder = "Password" })</p>
@@ -70,10 +31,6 @@
 
                     @*<a href="#">Forgot your password?</a>*@
                     <button style="background-color: #9f8772">Đăng nhập</button>
-                    @*<div class="input-login" >
-                            <input type="submit" value="Đăng nhập" style="background-color: #9F8772">
-
-                        </div>*@
                     <br />
                     <div class="text">
                         <span><i>Bạn mới biết đến EverLove? </i></span>
@@ -83,20 +40,6 @@
                 </form>
             }
         </div>
-        @*<div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left" style="background-color: #603838">
-                        <h1>Chào mừng đã quay trở lại!</h1>
-                        <br />
-                        <button class="ghost" id="signIn" style="background-color: #9F8772">Đăng Nhập</button>
-                    </div>
-                    <div class="overlay-panel overlay-right" style="background-color: #603838">
-                        <h1>Xin chào, bạn!</h1>
-                        <br />
-                        <button class="ghost" id="signUp" style="background-color: #9F8772">Đăng Ký</button>
-                    </div>
-                </div>
-            </div>*@
     </div>
 
 </div>
@@ -113,7 +56,7 @@
     align-items: center;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
+    height: 80vh;
     z-index: 1;
 }
 
@@ -169,9 +112,9 @@ input {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 600px;
+    width: 500px;
     max-width: 100%;
-    min-height: 500px;
+    min-height: 400px;
     z-index: 1;
 }
 
@@ -179,7 +122,7 @@ input {
 /*    position: absolute;
 */    top: 0;
     height: 100%;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .sign-in-container {

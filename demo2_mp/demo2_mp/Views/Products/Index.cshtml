@@ -21,14 +21,17 @@
             Tên sản phẩm
         </th>
         <th>
-            Mô tả
+            Mô tả ngắn
+        </th>     
+        <th>
+            Dung lượng
         </th>
         <th>
             Giá
         </th>
         <th>
-            Hình ảnh
-        </th>
+            Hình ảnh 
+        </th>      
         <th>
             Loại sản phẩm
         </th>
@@ -42,14 +45,18 @@
                 @Html.DisplayFor(modelItem => item.NamePro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DecriptionPro)
+                @Html.DisplayFor(modelItem => item.ShortDec)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.DungLuong)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 <img src="~/Content/img/@item.ImagePro" width="50" />
-            </td>
+            </td>           
             <td>
                 @Html.DisplayFor(modelItem => item.Category1.NameCate)
             </td>
@@ -61,7 +68,7 @@
         </tr>
     }
 
-</table>
+</table>    
 
 <div class="menu-page">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

@@ -11,7 +11,9 @@ namespace demo2_mp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class OrderDetail
     {
         public int ID { get; set; }
