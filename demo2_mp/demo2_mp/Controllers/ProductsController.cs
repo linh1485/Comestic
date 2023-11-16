@@ -13,7 +13,7 @@ namespace demo2_mp.Controllers
 {
     public class ProductsController : Controller
     {
-        private dbEntities2 db = new dbEntities2();
+        private dbEntities db = new dbEntities();
 
         //Danh sách sản phẩm - Trang User
         public ActionResult ProductList(int? category, int? page, string SearchString, double min = double.MinValue, double max = double.MaxValue)
@@ -64,10 +64,19 @@ namespace demo2_mp.Controllers
 
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            // Khai báo mỗi trang 8 sản phẩm
+            int pageSize = 6;
+            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+
+            // Nếu page = null thì đặt lại page là 1.
+            if (page == null) page = 1;
+
             var products = db.Products.Include(p => p.Category1);
-            return View(products.ToList());
+            return View(products.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Products/Details/5

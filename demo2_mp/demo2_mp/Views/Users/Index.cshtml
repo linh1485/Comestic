@@ -15,7 +15,7 @@
             <thead>
                 <tr>
                     <th>Tên tài khoản</th>
-                    <th>Trạng thái</th>
+                    @*<th>Trạng thái</th>*@
                     <th>Mật khẩu</th>
                     <th>Email</th>
                     <th>Số Điện Thoại</th>
@@ -34,9 +34,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.NameUser)
                         </td>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.RoleUser)
-                        </td>
+                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.PasswordUser)
                         </td>

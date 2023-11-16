@@ -13,10 +13,10 @@ namespace demo2_mp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbEntities2 : DbContext
+    public partial class dbEntities : DbContext
     {
-        public dbEntities2()
-            : base("name=dbEntities2")
+        public dbEntities()
+            : base("name=dbEntities")
         {
         }
     

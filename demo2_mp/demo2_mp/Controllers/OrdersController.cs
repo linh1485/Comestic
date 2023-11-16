@@ -12,7 +12,7 @@ namespace demo2_mp.Controllers
 {
     public class OrdersController : Controller
     {
-        private dbEntities2 db = new dbEntities2();
+        private dbEntities db = new dbEntities();
 
         // GET: OrderProes
         public ActionResult Index()

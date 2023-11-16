@@ -16,22 +16,37 @@
 
         <dd>@Html.DisplayFor(model => model.NamePro)</dd>
 
-        <dt>Mô tả</dt>
+        <dt>Mô tả ngắn</dt>
+
+        <dd>@Html.DisplayFor(model => model.ShortDec)</dd>
+
+        <dt>Mô tả dài</dt>
 
         <dd>@Html.DisplayFor(model => model.DecriptionPro)</dd>
-
-        <dt>Giá</dt>
-
-        <dd>@Html.DisplayFor(model => model.Price)</dd>
-
-        <dt>Hình ảnh</dt>
-
-        <dd>@Html.DisplayFor(model => model.ImagePro)</dd>
 
         <dt>Loại sản phẩm</dt>
 
         <dd>@Html.DisplayFor(model => model.Category1.NameCate)</dd>
 
+        <dt>Dung lượng</dt>
+
+        <dd>@Html.DisplayFor(model => model.DungLuong)</dd>
+
+        <dt>Giá</dt>
+
+        <dd>@Html.DisplayFor(model => model.Price)</dd>
+
+        <dt>Hình ảnh 1</dt>
+
+        <dd>@Html.DisplayFor(model => model.ImagePro)</dd>
+
+        <dt>Hình ảnh 2</dt>
+
+        <dd>@Html.DisplayFor(model => model.Image1)</dd>
+
+        <dt>Hình ảnh 3</dt>
+
+        <dd>@Html.DisplayFor(model => model.Image2)</dd>
     </dl>
 
     @using (Html.BeginForm()) {

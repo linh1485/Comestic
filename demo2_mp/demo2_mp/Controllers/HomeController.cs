@@ -25,6 +25,9 @@ namespace demo2_mp.Controllers
             return View();
         }
 
-
+        public ActionResult Songxanh()
+        {
+            return View();
+        }
     }
 }

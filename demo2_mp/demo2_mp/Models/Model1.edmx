@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="IDCate" />
           </Key>
-          <Property Name="IDCate" Type="int" Nullable="false" />
+          <Property Name="IDCate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameCate" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="OrderDetail">
@@ -30,6 +30,7 @@
           <Property Name="DateOrder" Type="date" />
           <Property Name="IDCus" Type="int" />
           <Property Name="AddressDeliverry" Type="nvarchar(max)" />
+          <Property Name="Total" Type="float" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -38,9 +39,13 @@
           <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NamePro" Type="nvarchar(max)" />
           <Property Name="DecriptionPro" Type="nvarchar(max)" />
+          <Property Name="ShortDec" Type="nvarchar(max)" />
           <Property Name="Category" Type="int" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="float" />
           <Property Name="ImagePro" Type="nvarchar(max)" />
+          <Property Name="Image1" Type="nvarchar(max)" />
+          <Property Name="Image2" Type="nvarchar(max)" />
+          <Property Name="DungLuong" Type="float" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -48,7 +53,6 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="NameUser" Type="varchar(max)" />
-          <Property Name="RoleUser" Type="varchar(max)" />
           <Property Name="PasswordUser" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="10" />
@@ -138,7 +142,7 @@
           <Key>
             <PropertyRef Name="IDCate" />
           </Key>
-          <Property Name="IDCate" Type="Int32" Nullable="false" />
+          <Property Name="IDCate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameCate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Pro_Category" FromRole="Category" ToRole="Products" />
         </EntityType>
@@ -162,6 +166,7 @@
           <Property Name="DateOrder" Type="DateTime" Precision="0" />
           <Property Name="IDCus" Type="Int32" />
           <Property Name="AddressDeliverry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Total" Type="Double" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__IDOrd__2F10007B" FromRole="OrderPro" ToRole="OrderDetail" />
           <NavigationProperty Name="User" Relationship="Self.FK__OrderPro__IDCus__2B3F6F97" FromRole="OrderPro" ToRole="Users" />
         </EntityType>
@@ -172,9 +177,13 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NamePro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DecriptionPro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDec" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Category" Type="Int32" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Price" Type="Double" />
           <Property Name="ImagePro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DungLuong" Type="Double" />
           <NavigationProperty Name="Category1" Relationship="Self.FK_Pro_Category" FromRole="Products" ToRole="Category" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__IDPro__2E1BDC42" FromRole="Products" ToRole="OrderDetail" />
         </EntityType>
@@ -184,7 +193,6 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="NameUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="RoleUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="PasswordUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -243,7 +251,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
           <EntitySet Name="OrderProes" EntityType="Self.OrderPro" />
@@ -271,7 +279,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities2">
+        <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities">
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="dbModel.Category">
               <MappingFragment StoreEntitySet="Category">
@@ -298,6 +306,7 @@
                 <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
                 <ScalarProperty Name="IDCus" ColumnName="IDCus" />
                 <ScalarProperty Name="AddressDeliverry" ColumnName="AddressDeliverry" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -307,9 +316,13 @@
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="NamePro" ColumnName="NamePro" />
                 <ScalarProperty Name="DecriptionPro" ColumnName="DecriptionPro" />
+                <ScalarProperty Name="ShortDec" ColumnName="ShortDec" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ImagePro" ColumnName="ImagePro" />
+                <ScalarProperty Name="Image1" ColumnName="Image1" />
+                <ScalarProperty Name="Image2" ColumnName="Image2" />
+                <ScalarProperty Name="DungLuong" ColumnName="DungLuong" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -318,7 +331,6 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NameUser" ColumnName="NameUser" />
-                <ScalarProperty Name="RoleUser" ColumnName="RoleUser" />
                 <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />

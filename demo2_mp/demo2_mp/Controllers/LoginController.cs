@@ -12,7 +12,7 @@ namespace demo2_mp.Controllers
 {
     public class LoginController : Controller
     {
-        private dbEntities2 db = new dbEntities2();
+        private dbEntities db = new dbEntities();
 
         // Đăng xuất
         public ActionResult Logout()
@@ -25,11 +25,11 @@ namespace demo2_mp.Controllers
         // Tạo view cho khách hàng Login
         public ActionResult Login()
         {
-            if (Request.Cookies["username"] != null && Request.Cookies["password"] != null)
-            {
-                ViewBag.username = Request.Cookies["username"];
-                ViewBag.password = Request.Cookies["password"];
-            }
+            //if (Request.Cookies["username"] != null && Request.Cookies["password"] != null)
+            //{
+            //    ViewBag.username = Request.Cookies["username"];
+            //    ViewBag.password = Request.Cookies["password"];
+            //}
             return View();
         }
 
@@ -52,58 +52,73 @@ namespace demo2_mp.Controllers
         [HttpPost]
         public ActionResult LoginAcount(User _user)
         {
-            if (ModelState.IsValid)
+            // check là khách hàng cần tìm
+            var check = db.Users.Where(s => s.NameUser == _user.NameUser && s.PasswordUser == _user.PasswordUser).FirstOrDefault();
+            if (check != null)  //không có KH
             {
-                if (string.IsNullOrEmpty(_user.NameUser))
-                    ModelState.AddModelError(string.Empty, "Username không được để trống");
-                if (string.IsNullOrEmpty(_user.PasswordUser))
-                    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
-
-                if (ModelState.IsValid)
-                {
-                    var check = db.Users.Where(s => s.NameUser == _user.NameUser && s.PasswordUser == _user.PasswordUser).FirstOrDefault();
-                    if (check != null)
-                    {
-                        ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
-                        db.Configuration.ValidateOnSaveEnabled = false;
-                        Session["ID"] = check.ID;
-                        Session["DiaChi"] = check.DiaChi;
-                        Session["UserName"] = check.NameUser;
-                        Session["FullName"] = check.FullName;
-                        Session["Phone"] = check.PhoneNumber;
-                        //var listgroup = Get
-                        //Session.Add("SESSION_GROUP",)
-
-                        return RedirectToAction("Index", "Home");
-
-                    }
-                    else ViewBag.ErrorInfo = "Tên đăng nhập hoặc mật khẩu không đúng";
-                }
+                // Có tồn tại KH -> chuẩn bị dữ liệu đưa về lại ShowCart.cshtml
+                db.Configuration.ValidateOnSaveEnabled = false;
+                Session["ID"] = check.ID;
+                Session["DiaChi"] = check.DiaChi;
+                Session["UserName"] = check.NameUser;
+                Session["FullName"] = check.FullName;
+                Session["Phone"] = check.PhoneNumber;
+                // Quay lại trang giỏ hàng với thông tin cần thiết
+                return RedirectToAction("ProductList", "Products");
+            }
+            else
+            {   
+                //ViewBag.ErrorInfo = "Đăng nhập sai, xin hãy đăng nhập lại !!!";
+                return View("Login");
             }
 
-            return View();
+
+
+
+
+
+
+
+
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    //if (string.IsNullOrEmpty(_user.NameUser))
+            //    //    ModelState.AddModelError(string.Empty, "Username không được để trống");
+            //    //if (string.IsNullOrEmpty(_user.PasswordUser))
+            //    //    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
+
+            //    if (ModelState.IsValid)
+            //    {
+            //        var check = db.Users.Where(s => s.NameUser == _user.NameUser && s.PasswordUser == _user.PasswordUser).FirstOrDefault();
+            //        if (check != null)
+            //        {
+            //            ViewBag.ErrorInfo = "Dang nhap thanh cong";
+
+            //            //db.Configuration.ValidateOnSaveEnabled = false;
+            //            Session["ID"] = check.ID;
+            //            Session["DiaChi"] = check.DiaChi;
+            //            Session["UserName"] = check.NameUser;
+            //            Session["FullName"] = check.FullName;
+            //            Session["Phone"] = check.PhoneNumber;
+            //            return RedirectToAction("Index", "Home");
+            //        }
+
+            //    }
+            //}
+            //else
+            //{
+            //    ViewBag.ErrorInfo = "Đăng nhập sai, xin hãy đăng nhập lại !!!";
+            //    return View("LoginCus");
+            //}
+            //return View();
 
         }
 
-            //// check là khách hàng cần tìm
-            //var check = db.Users.Where(s => s.NameUser == _user.NameUser && s.PasswordUser == _user.PasswordUser).FirstOrDefault();
-            //if (check == null)  //không có KH
-            //{
-            //    ViewBag.ErrorInfo = "Đăng nhập sai, xin hãy đăng nhập lại !!!";
-            //    return View("Login");
-            //}
-            //else
-            //{   // Có tồn tại KH -> chuẩn bị dữ liệu đưa về lại ShowCart.cshtml
-            //    db.Configuration.ValidateOnSaveEnabled = false;
-            //    Session["IDCus"] = check.ID;
-            //    Session["Password"] = check.PasswordUser;
-            //    Session["NameCus"] = check.FullName;
-            //    Session["PhoneCus"] = check.PhoneNumber;
-            //    Session["UserName"] = check.NameUser;
-            //    // Quay lại trang giỏ hàng với thông tin cần thiết
-            //    return RedirectToAction("ProductList", "Products");
-            //}
-        
+
+
 
         //public List<string> GetListGroupID(string username)
         //{
@@ -130,38 +145,23 @@ namespace demo2_mp.Controllers
         [HttpPost]
         public ActionResult Register(User _user)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                if (string.IsNullOrEmpty(_user.FullName))
-                    ModelState.AddModelError(string.Empty, "Họ tên không được để trống");
-                if (string.IsNullOrEmpty(_user.Email))
-                    ModelState.AddModelError(string.Empty, "Email không được để trống");
-                //if (string.IsNullOrEmpty(_user.PhoneNumber))
-                //    ModelState.AddModelError(string.Empty, "Số điện thoại không được để trống");
-                //if (string.IsNullOrEmpty(_user.Gender))
-                //    ModelState.AddModelError(string.Empty, "");
-                //if (string.IsNullOrEmpty(_user.DiaChi))
-                //    ModelState.AddModelError(string.Empty, "");
-                if (string.IsNullOrEmpty(_user.NameUser))
-                    ModelState.AddModelError(string.Empty, "Username không được để trống");
-                if (string.IsNullOrEmpty(_user.PasswordUser))
-                    ModelState.AddModelError(string.Empty, "Mật khẩu không được để trống");
-
-                //
-                var check_name = db.Users.Where(n => n.FullName == _user.FullName).FirstOrDefault();
-                if (check_name != null) // da có tên khách hàng
+                var check_name = db.Users.Where(n => n.PhoneNumber == _user.PhoneNumber).FirstOrDefault();
+                if (check_name == null) // chưa có tên khách hàng
                 {
-                    ModelState.AddModelError(string.Empty, "Đã có người đăng kí tên này");
-                }
-                if (ModelState.IsValid)
-                {
-                    
+                    db.Configuration.ValidateOnSaveEnabled = false;
                     db.Users.Add(_user);
                     db.SaveChanges();
+                    return RedirectToAction("Login", "Login");
                 }
-                else return View();
+                else
+                {
+                    ViewBag.ErrorRegister = "Số điện thoại này đã tồn tại !";
+                    return View();
+                }
             }
-            return RedirectToAction("Login");
+            return View();
         }
 
     }

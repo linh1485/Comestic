@@ -12,7 +12,7 @@ namespace demo2_mp.Controllers
 {
     public class CartController : Controller
     {
-        private dbEntities2 db = new dbEntities2();
+        private dbEntities db = new dbEntities();
 
         // GET: Cart, chuẩn bị dữ liệu cho View
         public ActionResult ShowCart()
