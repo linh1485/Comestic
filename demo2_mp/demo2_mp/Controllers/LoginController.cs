@@ -74,15 +74,6 @@ namespace demo2_mp.Controllers
 
 
 
-
-
-
-
-
-
-
-
-
             //if (ModelState.IsValid)
             //{
             //    //if (string.IsNullOrEmpty(_user.NameUser))
@@ -147,18 +138,25 @@ namespace demo2_mp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var check_name = db.Users.Where(n => n.PhoneNumber == _user.PhoneNumber).FirstOrDefault();
-                if (check_name == null) // chưa có tên khách hàng
+                if (_user.PhoneNumber.Length < 10 || _user.PhoneNumber.Length > 10)
                 {
-                    db.Configuration.ValidateOnSaveEnabled = false;
-                    db.Users.Add(_user);
-                    db.SaveChanges();
-                    return RedirectToAction("Login", "Login");
+                    ModelState.AddModelError(string.Empty, "Số điện thoại chỉ bao gồm 10 chữ số");
                 }
-                else
+                if (ModelState.IsValid)
                 {
-                    ViewBag.ErrorRegister = "Số điện thoại này đã tồn tại !";
-                    return View();
+                    var check_name = db.Users.Where(n => n.PhoneNumber == _user.PhoneNumber).FirstOrDefault();
+                    if (check_name == null) // chưa có tên khách hàng
+                    {
+                        //db.Configuration.ValidateOnSaveEnabled = false;
+                        db.Users.Add(_user);
+                        db.SaveChanges();
+                        return RedirectToAction("Login", "Login");
+                    }
+                    else
+                    {
+                        ViewBag.ErrorRegister = "Số điện thoại này đã tồn tại !";
+                        return View();
+                    }
                 }
             }
             return View();

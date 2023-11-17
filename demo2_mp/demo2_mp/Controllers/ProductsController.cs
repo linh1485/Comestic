@@ -64,19 +64,22 @@ namespace demo2_mp.Controllers
 
 
         // GET: Products
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            // Khai báo mỗi trang 8 sản phẩm
-            int pageSize = 6;
-            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
-            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
-            int pageNumber = (page ?? 1);
+            //// Khai báo mỗi trang 8 sản phẩm
+            //int pageSize = 6;
+            //// Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            //// nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            //int pageNumber = (page ?? 1);
 
-            // Nếu page = null thì đặt lại page là 1.
-            if (page == null) page = 1;
+            //// Nếu page = null thì đặt lại page là 1.
+            //if (page == null) page = 1;
+
+            //var products = db.Products.Include(p => p.Category1);
+            //return View(products.ToPagedList(pageNumber, pageSize));
 
             var products = db.Products.Include(p => p.Category1);
-            return View(products.ToPagedList(pageNumber, pageSize));
+            return View(products.ToList());
         }
 
         // GET: Products/Details/5
@@ -106,13 +109,24 @@ namespace demo2_mp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,NamePro,DecriptionPro,Category,Price,ImagePro")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,NamePro,ShortDec,DecriptionPro,DungLuong,Image1,Image2,Category,Price,ImagePro")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (product.Price < 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Vui lòng nhập giá > 0 ");
+                }
+                if (product.DungLuong < 0)
+                {
+                    ModelState.AddModelError(string.Empty, "Vui lòng nhập dung tích > 0 ");
+                }
+                if (ModelState.IsValid)
+                {
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             ViewBag.Category = new SelectList(db.Categories, "IDCate", "NameCate", product.Category);
@@ -140,13 +154,28 @@ namespace demo2_mp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,NamePro,DecriptionPro,Category,Price,ImagePro")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,NamePro,ShortDec,DecriptionPro,DungLuong,Image1,Image2,Category,Price,ImagePro")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    if (product.Price < 0)
+                    {
+                        ModelState.AddModelError(string.Empty, "Vui lòng nhập giá > 0 ");
+                    }
+                    if (product.DungLuong < 0)
+                    {
+                        ModelState.AddModelError(string.Empty, "Vui lòng nhập dung tích > 0 ");
+                    }
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(product).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+                
             }
             ViewBag.Category = new SelectList(db.Categories, "IDCate", "NameCate", product.Category);
             return View(product);

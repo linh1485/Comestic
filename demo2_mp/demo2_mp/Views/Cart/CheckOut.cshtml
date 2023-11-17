@@ -1,4 +1,5 @@
-﻿
+﻿@*@model demo2_mp.Models.Cart*@
+
 @{
     ViewBag.Title = "CheckOut";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -28,6 +29,13 @@
             <br />
             <input type="text" name="DiaChi" value="@Session["DiaChi"]" required />
         </div>
+        <!--<div class="inputbox">
+            <span>Tổng tiền</span>
+            <br />
+            <p style="color:black">@ViewBag.TotalCart</p>-->
+            @*<input type="text" name="Total" value="@Model.Total_money().ToString("#,##0").Replace(',', '.').000 đồng" required />*@
+        <!--</div>-->
+
         <br />
         <div class="btn-submit">
             <input type="submit" value="Thanh toán" class="btn btn-danger" />

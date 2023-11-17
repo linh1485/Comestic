@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Xóa loại sản phẩm</h2>
+<h2 style="font-size: 30px; color: #603838;text-align:center">Xóa loại sản phẩm</h2>
 
-<h3>Bạn có chắc là xóa loại sản phẩm này?</h3>
+<h3 style="font-size: 20px; color: #603838;">Bạn có chắc là xóa loại sản phẩm này?</h3>
 <div>
-    <h4>Category</h4>
+    @*<h4 style="font-size: 20px; color: #603838">Category</h4>*@
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="custom-dl-container" style="font-size: 20px; color: #603838;">
         <dt>
             ID
         </dt>
@@ -34,10 +34,39 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-default" /> |
+        <div class="form-actions no-color" style="font-size: 20px; color: #603838;">
+            <input type="submit" value="Xóa" class="btn btn-default" style="font-size: 20px; color: #603838;  background-color: antiquewhite " /> |
             @Html.ActionLink("Quay lại", "Index")
         </div>
     }
 </div>
+
+<style>
+    /* Style cho container chứa dl, dt, dd */
+    .custom-dl-container {
+        display: flex;
+        flex-wrap: wrap;
+        border: 3px solid #ddd; /* Đường viền */
+        padding: 10px; /* Phần đệm */
+        border-radius: 8px; /* Bo góc */
+    }
+
+    /* Style cho dt */
+    dt {
+        flex-basis: 200px; /* Điều chỉnh chiều rộng của dt */
+        font-weight: bold; /* Đậm chữ cho dt */
+        margin-right: 5px; /* Khoảng cách giữa dt và dd */
+    }
+
+    /* Style cho dd */
+    dd {
+        flex-grow: 1;
+        margin: 0; /* Loại bỏ margin mặc định */
+    }
+    /* Loại bỏ đường gạch chân từ liên kết */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
 

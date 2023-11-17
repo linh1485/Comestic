@@ -8,7 +8,7 @@
 <h2>Chi tiết sản phẩm</h2>
 
 <div>
-    <h4>Sản phẩm</h4>
+    @*<h4>Sản phẩm</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>Tên sản phẩm</dt>
@@ -53,3 +53,45 @@
     @Html.ActionLink("Sửa", "Edit", new { id = Model.ProductID }) |
     @Html.ActionLink("Quay lại", "Index")
 </p>
+
+
+<style>
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    h2 {
+        font-size: 20px;
+        color: #603838;
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 30px;
+        color: #603838;
+    }
+
+    /* Style cho container chứa dl, dt, dd */
+    .custom-dl-container {
+        display: flex;
+        flex-wrap: wrap;
+        border: 3px solid #ddd; /* Đường viền */
+        padding: 10px; /* Phần đệm */
+        border-radius: 8px; /* Bo góc */
+    }
+
+    /* Style cho dt */
+    dt {
+        flex-basis: 200px; /* Điều chỉnh chiều rộng của dt */
+        font-weight: bold; /* Đậm chữ cho dt */
+        margin-right: 5px; /* Khoảng cách giữa dt và dd */
+    }
+
+    /* Style cho dd */
+    dd {
+        flex-grow: 1;
+        margin: 0; /* Loại bỏ margin mặc định */
+    }
+</style>

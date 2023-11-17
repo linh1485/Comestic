@@ -49,7 +49,7 @@ namespace demo2_mp.Controllers
         {
             Cart cart = Session["Cart"] as Cart;
             int id_pro = int.Parse(Request.Form["idPro"]);
-            int _quantity = int.Parse(Request.Form["carQuantity"]);
+            int _quantity = int.Parse(Request.Form["quantity"]);
             cart.Update_quantity(id_pro, _quantity);
 
             return RedirectToAction("ShowCart", "Cart");
@@ -93,6 +93,7 @@ namespace demo2_mp.Controllers
         [HttpPost]
         public ActionResult CheckOut(FormCollection form)
         {
+           
             try
             {
                 Cart cart = Session["Cart"] as Cart;
@@ -100,6 +101,9 @@ namespace demo2_mp.Controllers
                 _order.DateOrder = DateTime.Now;
                 _order.AddressDeliverry = form["DiaChi"];
                 _order.IDCus = int.Parse(form["CodeCustomer"]);
+                //decimal total_money_item = 0;
+                //ViewBag.TotalCart = total_money_item;
+                //_order.Total = ViewBag.TotalCart;
                 db.OrderProes.Add(_order);
                 db.SaveChanges();
                 cart.ClearCart();

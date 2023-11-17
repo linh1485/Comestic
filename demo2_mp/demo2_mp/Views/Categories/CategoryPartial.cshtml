@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<demo2_mp.Models.Category>
 
 <link href="~/Content/css/user/danhmuc.css" rel="stylesheet" />
+<a href="~/Products/ProductList" >
+    <h3 class="category-heading">
+        <i class="fa-solid fa-bars"></i>
+        Danh mục
+    </h3>
+</a>
 
-<h3 class="category-heading">
-    <i class="fa-solid fa-bars"></i>
-    Danh mục
-</h3>
 <ul class="category-list">
     @{
         foreach (var item in Model)
@@ -17,3 +19,10 @@
     }
 </ul>
 
+
+<style>
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

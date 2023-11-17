@@ -41,15 +41,18 @@
 
                     @foreach (var pro in Model)
                     {
-                        <div class="box-pro" style="height:330px">
+                        <div class="box-pro" style="height:386px">
 
                             <div class="box-description">
                                 <a href="/Products/ChitietSP/@pro.ProductID">
                                     <img src="~/Content/img/@pro.ImagePro" class="size-img" />
                                     <span class="margin-des">@Html.DisplayFor(model => pro.NamePro)</span>
                                     <br />
-                                    <p class="margin-des" style=" float:left">@Html.DisplayFor(model => pro.ShortDec)</p>
-                                    <p class="margin-des" style=" float:left">@Html.DisplayFor(model => pro.Price)</p>
+                                    <span style=" float: left; font-size: 15px; text-decoration: none; color:black">
+                                        @Html.DisplayFor(model => pro.ShortDec)
+                                    </span>
+                                    @*<p class="margin-des" style=" float:left">@Html.DisplayFor(model => pro.Price) </p>*@
+                                    <p class="margin-des" style=" float:left">Giá: @String.Format("{0:0.000}", pro.Price) VNĐ</p>
                                 </a>
                                 <a href="/Cart/AddToCart/@pro.ProductID" style="float: right; padding-right:37px" >
                                     <i class="fa-solid fa-bag-shopping" style="color: #341f14; width:24px; height:24px"></i>

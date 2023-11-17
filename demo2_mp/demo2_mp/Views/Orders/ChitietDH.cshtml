@@ -1,0 +1,53 @@
+﻿@model demo2_mp.Models.OrderDetail
+
+@{
+    ViewBag.Title = "ChitietDH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ChitietDH</h2>
+
+<link href="~/Content/css/admin/index.css" rel="stylesheet" />
+
+<div id="container-dmsp">
+    <h2>Danh sách các đơn hàng</h2>
+    <br>
+    <div class="btn-createnew">
+        @*<a href="" class="createnew">Thêm sản phẩm mới</a>*@
+        @*@Html.ActionLink("Tạo đơn hàng mới", "Create")*@
+    </div>
+    <br>
+    <hr>
+
+    <div class="table-dmsp">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>
+                        <em class="fa fa-cog"></em>
+                    </th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => model.IDProduct)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Product)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.UnitPrice)
+                        </td>
+                    </tr>
+                </tbody>
+            
+        </table>
+    </div>
+</div>

@@ -25,6 +25,7 @@ namespace demo2_mp.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<OrderPro> OrderProes { get; set; }

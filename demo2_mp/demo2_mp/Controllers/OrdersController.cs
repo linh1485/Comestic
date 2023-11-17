@@ -17,10 +17,16 @@ namespace demo2_mp.Controllers
         // GET: OrderProes
         public ActionResult Index()
         {
-            var orderProes = db.OrderProes.Include(o => o.User);
+            var orderProes = db.OrderProes.Include(o => o.User) ;
             return View(orderProes.ToList());
         }
 
+        //Chi tiết sản phẩm
+        public ActionResult ChitietDH(int id)
+        {
+            var _order = db.OrderDetails.SingleOrDefault(s => s.IDOrder == id);
+            return View(_order);
+        }
 
         // GET: OrderProes/Delete/5
         public ActionResult Delete(int? id)

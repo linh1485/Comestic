@@ -31,13 +31,16 @@
                         <tr>
                             <td>@Html.DisplayFor(model => item._product.NamePro)</td>
                             <td><img src="~/Content/img/@item._product.ImagePro" width="80px" height="80px" /></td>
-                            <td> @Html.DisplayFor(model => item._product.Price)</td>
+                            <td> @Html.DisplayFor(model => item._product.Price).000</td>
                             <td>
                                 @using (Html.BeginForm("Update_Cart_Quantity", "Cart"))
                                 {
                                     <input type="hidden" value="@item._product.ProductID" name="idPro" />
-                                    <input type="number" value="@item._quantity" name="carQuantity" style="text-align:right" />
+                                    <input type="number" value="@item._quantity" name="quantity" id="quantity" style="text-align:right" />
                                     <input type="submit" value="Cập nhật" />
+
+                                    <br />
+                                    <span id="errmsg" style="color:red"></span>
                                 }
                             </td>
                             <td>@total.ToString("#,##0").Replace(',', '.').000</td>
@@ -86,4 +89,17 @@ else
     </div>
 }
 
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#quantity").keypress(function (e){
+            if (e.which == 0) {
+                $("#errmsg").html("so luong khong duoc nho hon 0").show().fadeOut("slow");
+                return false;
+            }
+
+        });
+    });
+</script>
 

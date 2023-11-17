@@ -6,7 +6,6 @@
 }
 
 
-
 <link href="~/Content/css/admin/index.css" rel="stylesheet" />
 
 
@@ -27,9 +26,9 @@
                             <h3 class="panel-title"></h3>
                         </div>
                         <div class="col col-xs-6 text-right">
-                            
+
                             <h2>@Html.ActionLink("Thêm mới", "Create")</h2>
-                            
+
 
                         </div>
                     </div>
@@ -59,7 +58,7 @@
                                     <td align="center">
                                         @*<a href="" class="btn btn-default"><em class="fa fa-pencil"></em></a>*@
                                         @*<div class="btn btn-default">@Html.ActionLink("Sửa", "Edit", new { id = item.IDCate })</div>
-                                        <div class="btn btn-default">@Html.ActionLink("Xóa", "Delete", new { id = item.IDCate })</div>*@
+                                            <div class="btn btn-default">@Html.ActionLink("Xóa", "Delete", new { id = item.IDCate })</div>*@
                                         @*<a class="btn btn-danger"><em class="fa fa-trash"></em></a>*@
 
 
@@ -83,3 +82,12 @@
 </div>
 
 <script src="js/jquery-1.11.1.min.js"></script>
+
+<style>
+    /* Loại bỏ đường gạch chân từ liên kết */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+

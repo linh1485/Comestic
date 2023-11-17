@@ -26,7 +26,6 @@ namespace demo2_mp.Models
         [Required(ErrorMessage = "Tên sản phẩm không được rỗng")]
         [Display(Name = "Tên sản phẩm")]
 
-
         public string NamePro { get; set; }
         public string DecriptionPro { get; set; }
         public string ShortDec { get; set; }
@@ -36,16 +35,22 @@ namespace demo2_mp.Models
 
         public Nullable<double> Price { get; set; }
         [Required(ErrorMessage = "Hình ảnh không được rỗng")]
-        [Display(Name = "File hình")]
+        [Display(Name = "Hình ảnh ")]
+
         public string ImagePro { get; set; }
         [Required(ErrorMessage = "Hình ảnh không được rỗng")]
-        [Display(Name = "File hình")]
+        [Display(Name = "Hình ảnh ")]
+
+
         public string Image1 { get; set; }
         [Required(ErrorMessage = "Hình ảnh không được rỗng")]
-        [Display(Name = "File hình")]
+        [Display(Name = "Hình ảnh ")]
+
+
         public string Image2 { get; set; }
-        [Required(ErrorMessage = "Hình ảnh không được rỗng")]
-        [Display(Name = "File hình")]
+        [Required(ErrorMessage = "Dung tích không được rỗng")]
+        [Display(Name = "Dung tích")]
+
         public Nullable<double> DungLuong { get; set; }
     
         public virtual Category Category1 { get; set; }

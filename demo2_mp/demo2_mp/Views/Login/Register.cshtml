@@ -46,6 +46,12 @@
                             <p>@ViewBag.ErrorRegister</p>
                         }
                     </div>
+
+                    <div class="input">
+                        <p>@Html.TextBoxFor(model => model.DiaChi, new { style = "filed-validation-error", placeholder = "Nhập địa chỉ" })</p>
+                        @Html.ValidationMessageFor(model => model.DiaChi)
+
+                    </div>
                     <br />
 
                     <button style="background-color: #9f8772">Đăng ký</button>

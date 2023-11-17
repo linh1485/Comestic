@@ -44,7 +44,14 @@ namespace demo2_mp.Models
         {
             var item = items.Find(s => s._product.ProductID == id);
             if (item != null)
+            {              
                 item._quantity = _new_quan;
+                if (_new_quan < 1)
+                {
+                    _new_quan = 1;
+                    item._quantity = _new_quan;
+                }
+            }
         }
         // Phương thức xóa sản phẩm trong giỏ hàng
         public void Remove_CartItem(int id)

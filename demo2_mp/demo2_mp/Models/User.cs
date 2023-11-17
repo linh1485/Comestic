@@ -21,7 +21,7 @@ namespace demo2_mp.Models
         {
             this.OrderProes = new HashSet<OrderPro>();
         }
-    
+
         public int ID { get; set; }
         [Required(ErrorMessage = "UserName không được rỗng")]
         [Display(Name = "UserName")]
@@ -33,18 +33,18 @@ namespace demo2_mp.Models
         public string PasswordUser { get; set; }
         public string Email { get; set; }
         [Required(ErrorMessage = "Số điện thoại không được rỗng")]
-        [Display(Name = "PhoneNumber")]
+        [Display(Name = "Số điện thoại")]
 
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Họ tên không được rỗng")]
-        [Display(Name = "FullName")]
+        [Display(Name = "Họ tên")]
 
         public string FullName { get; set; }
         public string Gender { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string DiaChi { get; set; }
         public string Img { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderPro> OrderProes { get; set; }
     }

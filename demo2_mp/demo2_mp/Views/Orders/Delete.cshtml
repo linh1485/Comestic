@@ -5,15 +5,15 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Xóa đơn hàng</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Bạn có chắc là xóa đơn hàng này?</h3>
 <div>
-    <h4>OrderPro</h4>
+    @*<h4>OrderPro</h4>*@
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="font-size: 20px; color: #603838;">
         <dt>
-            @Html.DisplayNameFor(model => model.DateOrder)
+            Ngày giao hàng 
         </dt>
 
         <dd>
@@ -21,7 +21,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AddressDeliverry)
+            Địa chỉ
         </dt>
 
         <dd>
@@ -29,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.User.NameUser)
+            Tên khách hàng 
         </dt>
 
         <dd>
@@ -38,7 +38,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -47,3 +48,49 @@
         </div>
     }
 </div>
+
+
+<style>
+    h2 {
+        font-size: 30px;
+        color: #603838;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 20px;
+        color: #603838;
+    }
+
+    h4 {
+        font-size: 20px;
+        color: #603838;
+    }
+    /* Style cho container chứa dl, dt, dd */
+    .custom-dl-container {
+        display: flex;
+        flex-wrap: wrap;
+        border: 3px solid #ddd; /* Đường viền */
+        padding: 10px; /* Phần đệm */
+        border-radius: 8px; /* Bo góc */
+    }
+
+    /* Style cho dt */
+    dt {
+        flex-basis: 200px; /* Điều chỉnh chiều rộng của dt */
+        font-weight: bold; /* Đậm chữ cho dt */
+        margin-right: 5px; /* Khoảng cách giữa dt và dd */
+    }
+
+    /* Style cho dd */
+    dd {
+        flex-grow: 1;
+        margin: 0; /* Loại bỏ margin mặc định */
+    }
+    /* Loại bỏ đường gạch chân từ liên kết */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+

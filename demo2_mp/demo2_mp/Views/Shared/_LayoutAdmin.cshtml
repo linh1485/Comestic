@@ -23,11 +23,7 @@
             <ul>               
                 <li>
                     <a>
-                        @if (Session["ID"] == null)
-                        {
-                            <span>Tên Admin</span>
-                        }
-                        @Session["FullName"]
+                        @Session["AdminName"]
                     </a>                  
                 </li>
                 <li><a href="~/Users/Index">Quản Lý Khách Hàng</a></li>
@@ -42,7 +38,7 @@
             @RenderBody()
         </main>
         <header class="header">
-            <a href="@Url.Action("Logout","Login")">
+            <a href="@Url.Action("Logout","Admin")">
                 <input class="logout-button" value="Thoat"/>
             </a>
             @*<button class="logout-button">Thoát</button>*@

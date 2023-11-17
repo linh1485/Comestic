@@ -23,8 +23,8 @@ namespace demo2_mp.Models
         }
     
         public int IDCate { get; set; }
-        [Required(ErrorMessage = "Tên danh mục không được rỗng")]
-        [Display(Name = "NameCate")]
+        [Required(ErrorMessage = "Loại sản phẩm không được rỗng")]
+        [Display(Name = "Loại sản phẩm")]
 
         public string NameCate { get; set; }
     
